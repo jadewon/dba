@@ -1,0 +1,93 @@
+name: Monthly DB Audit
+
+on:
+  schedule:
+    # 매월 1일 00:00 UTC (한국시간 09:00)
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+    inputs:
+      prev_month:
+        description: '이전 월 (YYYY-MM)'
+        required: false
+      curr_month:
+        description: '현재 월 (YYYY-MM)'
+        required: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Determine months
+        id: months
+        run: |
+          if [ -n "${{ github.event.inputs.curr_month }}" ]; then
+            CURR_MONTH="${{ github.event.inputs.curr_month }}"
+          else
+            CURR_MONTH=$(date +%Y-%m)
+          fi
+
+          if [ -n "${{ github.event.inputs.prev_month }}" ]; then
+            PREV_MONTH="${{ github.event.inputs.prev_month }}"
+          else
+            PREV_MONTH=$(date -d "$CURR_MONTH-01 -1 month" +%Y-%m 2>/dev/null || date -v-1m +%Y-%m)
+          fi
+
+          echo "prev_month=$PREV_MONTH" >> $GITHUB_OUTPUT
+          echo "curr_month=$CURR_MONTH" >> $GITHUB_OUTPUT
+          echo "이전 월: $PREV_MONTH"
+          echo "현재 월: $CURR_MONTH"
+
+      - name: Check snapshots exist
+        id: check
+        run: |
+          PREV_DIR="snapshots/${{ steps.months.outputs.prev_month }}"
+          CURR_DIR="snapshots/${{ steps.months.outputs.curr_month }}"
+
+          if [ ! -d "$PREV_DIR" ]; then
+            echo "경고: 이전 월 스냅샷이 없습니다: $PREV_DIR"
+            echo "has_prev=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_prev=true" >> $GITHUB_OUTPUT
+          fi
+
+          if [ ! -d "$CURR_DIR" ]; then
+            echo "오류: 현재 월 스냅샷이 없습니다: $CURR_DIR"
+            echo "has_curr=false" >> $GITHUB_OUTPUT
+            exit 1
+          else
+            echo "has_curr=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Analyze diff
+        id: diff
+        run: |
+          node scripts/actions/analyze_diff.js \
+            "${{ steps.months.outputs.prev_month }}" \
+            "${{ steps.months.outputs.curr_month }}"
+
+      - name: Call API
+        if: success()
+        env:
+          AUDIT_API_URL: ${{ secrets.AUDIT_API_URL }}
+          AUDIT_API_KEY: ${{ secrets.AUDIT_API_KEY }}
+        run: |
+          chmod +x scripts/actions/call_api.sh
+          ./scripts/actions/call_api.sh
+
+      - name: Upload diff result
+        uses: actions/upload-artifact@v4
+        with:
+          name: diff-result
+          path: diff_result.json
+          retention-days: 90
