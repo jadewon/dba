@@ -2,15 +2,12 @@ name: Monthly DB Audit
 
 on:
   schedule:
-    # 매월 1일 00:00 UTC (한국시간 09:00)
-    - cron: '0 0 1 * *'
+    # 매월 2일 00:00 UTC (한국시간 09:00)
+    - cron: '0 0 2 * *'
   workflow_dispatch:
     inputs:
-      prev_month:
-        description: '이전 월 (YYYY-MM)'
-        required: false
-      curr_month:
-        description: '현재 월 (YYYY-MM)'
+      target_month:
+        description: '대상 월 (YYYY-MM), 미입력시 이전 월'
         required: false
 
 jobs:
@@ -20,61 +17,39 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Determine months
-        id: months
+      - name: Determine target month
+        id: month
         run: |
-          if [ -n "${{ github.event.inputs.curr_month }}" ]; then
-            CURR_MONTH="${{ github.event.inputs.curr_month }}"
+          if [ -n "${{ github.event.inputs.target_month }}" ]; then
+            TARGET_MONTH="${{ github.event.inputs.target_month }}"
           else
-            CURR_MONTH=$(date +%Y-%m)
+            # 이전 달 계산
+            TARGET_MONTH=$(date -d "$(date +%Y-%m-01) -1 month" +%Y-%m 2>/dev/null || date -v-1m +%Y-%m)
           fi
 
-          if [ -n "${{ github.event.inputs.prev_month }}" ]; then
-            PREV_MONTH="${{ github.event.inputs.prev_month }}"
-          else
-            PREV_MONTH=$(date -d "$CURR_MONTH-01 -1 month" +%Y-%m 2>/dev/null || date -v-1m +%Y-%m)
-          fi
+          echo "target_month=$TARGET_MONTH" >> $GITHUB_OUTPUT
+          echo "대상 월: $TARGET_MONTH"
 
-          echo "prev_month=$PREV_MONTH" >> $GITHUB_OUTPUT
-          echo "curr_month=$CURR_MONTH" >> $GITHUB_OUTPUT
-          echo "이전 월: $PREV_MONTH"
-          echo "현재 월: $CURR_MONTH"
-
-      - name: Check snapshots exist
-        id: check
+      - name: Check changes directory
         run: |
-          PREV_DIR="snapshots/${{ steps.months.outputs.prev_month }}"
-          CURR_DIR="snapshots/${{ steps.months.outputs.curr_month }}"
-
-          if [ ! -d "$PREV_DIR" ]; then
-            echo "경고: 이전 월 스냅샷이 없습니다: $PREV_DIR"
-            echo "has_prev=false" >> $GITHUB_OUTPUT
-          else
-            echo "has_prev=true" >> $GITHUB_OUTPUT
-          fi
-
-          if [ ! -d "$CURR_DIR" ]; then
-            echo "오류: 현재 월 스냅샷이 없습니다: $CURR_DIR"
-            echo "has_curr=false" >> $GITHUB_OUTPUT
+          if [ ! -d "changes" ]; then
+            echo "changes 디렉토리가 없습니다"
             exit 1
-          else
-            echo "has_curr=true" >> $GITHUB_OUTPUT
           fi
 
-      - name: Analyze diff
-        id: diff
+          TARGET="${{ steps.month.outputs.target_month }}"
+          COUNT=$(ls changes/${TARGET}-*.json 2>/dev/null | wc -l || echo "0")
+          echo "발견된 변경 파일: ${COUNT}개"
+
+      - name: Aggregate changes
         run: |
-          node scripts/actions/analyze_diff.js \
-            "${{ steps.months.outputs.prev_month }}" \
-            "${{ steps.months.outputs.curr_month }}"
+          node scripts/actions/aggregate_and_call.js "${{ steps.month.outputs.target_month }}"
 
       - name: Call API
         if: success()
@@ -85,9 +60,9 @@ jobs:
           chmod +x scripts/actions/call_api.sh
           ./scripts/actions/call_api.sh
 
-      - name: Upload diff result
+      - name: Upload result
         uses: actions/upload-artifact@v4
         with:
-          name: diff-result
+          name: audit-result-${{ steps.month.outputs.target_month }}
           path: diff_result.json
           retention-days: 90

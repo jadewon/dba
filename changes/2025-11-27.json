@@ -1,0 +1,67 @@
+[
+  {
+    "name": "DB (onda-aurora-cluster)",
+    "actions": [
+      { "type": "permissionChange", "account": "sean", "from": "ALL + GRANT OPTION", "to": "SELECT, PROCESS, SHOW DATABASES" },
+      { "type": "deleteAccount", "account": "ian" }
+    ]
+  },
+  {
+    "name": "DB (onda-standard-property)",
+    "actions": [
+      { "type": "permissionChange", "account": "sean", "from": "ALL + GRANT OPTION", "to": "SELECT, PROCESS, SHOW DATABASES" }
+    ]
+  },
+  {
+    "name": "DB (onda-sms)",
+    "actions": [
+      { "type": "permissionChange", "account": "sean", "from": "ALL + GRANT OPTION", "to": "SELECT, PROCESS, SHOW DATABASES" }
+    ]
+  },
+  {
+    "name": "DB (b2e-rds-prd-cluster)",
+    "actions": [
+      { "type": "permissionChange", "account": "sean", "from": "ALL + GRANT OPTION", "to": "SELECT, PROCESS, SHOW DATABASES" },
+      { "type": "deleteAccount", "account": "ian" }
+    ]
+  },
+  {
+    "name": "DB (auth-cluster)",
+    "actions": [
+      { "type": "permissionChange", "account": "sean", "from": "ALL + GRANT OPTION", "to": "SELECT, PROCESS, SHOW DATABASES" }
+    ]
+  },
+  {
+    "name": "DB (onda-plus-cluster)",
+    "actions": [
+      { "type": "permissionChange", "account": "sean", "from": "ALL + GRANT OPTION", "to": "SELECT, PROCESS, SHOW DATABASES" }
+    ]
+  },
+  {
+    "name": "DB (onda-backoffice)",
+    "actions": [
+      { "type": "permissionChange", "account": "sean", "from": "ALL + GRANT OPTION", "to": "SELECT, PROCESS, SHOW DATABASES" }
+    ]
+  },
+  {
+    "name": "DB (booking-prd)",
+    "actions": [
+      { "type": "permissionChange", "account": "sean", "from": "ALL + GRANT OPTION", "to": "SELECT, PROCESS, SHOW DATABASES" },
+      { "type": "createAccount", "account": "jade", "note": "DBA 계정 신규 생성" }
+    ]
+  },
+  {
+    "name": "DB (obs-system)",
+    "actions": [
+      { "type": "permissionChange", "account": "sean", "from": "ALL + GRANT OPTION", "to": "SELECT, PROCESS, SHOW DATABASES" },
+      { "type": "createAccount", "account": "jade", "note": "DBA 계정 신규 생성" }
+    ]
+  },
+  {
+    "name": "DB (cms-cde-reservaion-api)",
+    "actions": [
+      { "type": "permissionChange", "account": "sean", "from": "ALL + GRANT OPTION", "to": "SELECT, PROCESS, SHOW DATABASES" },
+      { "type": "other", "account": "jade", "note": "비밀번호 재설정" }
+    ]
+  }
+]

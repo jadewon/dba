@@ -8,5 +8,8 @@ credentials/
 *.log
 .DS_Store
 
+# Actions 생성 파일
+diff_result.json
+
 # 2023년 구 문서 (정리 후 삭제 예정)
 *8b1438705dfe48f6ad73ec39f058dc20*
