@@ -104,10 +104,14 @@ function formatActionDescription(action) {
       return `${action.account} 계정 삭제`;
     case 'createAccount':
       return `${action.account} 계정 생성${action.note ? ` (${action.note})` : ''}`;
+    case 'auditWarning':
+      return `[적절성 검토 경고] ${action.account}: ${action.issues?.join(', ') || action.note}`;
+    case 'auditCheck':
+      return `[적절성 검토] ${action.note || '검토 완료'}`;
     case 'other':
-      return `${action.account}: ${action.note || '기타 작업'}`;
+      return action.account ? `${action.account}: ${action.note || '기타 작업'}` : (action.note || '기타 작업');
     default:
-      return `${action.account}: ${action.type}`;
+      return action.account ? `${action.account}: ${action.type}` : action.note || action.type;
   }
 }
 
@@ -131,14 +135,26 @@ function buildPayload(targetMonth, dbChanges) {
   const details = [];
   for (const dbName of ALL_DATABASES) {
     const actions = dbChanges.get(dbName) || [];
+    const hasChanges = actions.length > 0;
+
     details.push({
       database: dbName,
-      status: actions.length > 0 ? 'changed' : 'no_change',
-      actions: actions.map(a => ({
-        date: a.date,
-        type: a.type,
-        description: formatActionDescription(a)
-      }))
+      status: hasChanges ? 'changed' : 'no_change',
+      actions: hasChanges
+        ? actions.map(a => ({
+            date: a.date,
+            type: a.type,
+            description: formatActionDescription(a)
+          }))
+        : [{ type: 'other', note: '변경사항 없음' }]
+    });
+  }
+
+  // 전체 변경사항이 없을 경우 summary.changes에도 명시
+  if (summaryChanges.length === 0) {
+    summaryChanges.push({
+      type: 'other',
+      note: '변경사항 없음'
     });
   }
 

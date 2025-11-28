@@ -3,6 +3,9 @@ credentials/
 *.pem
 *.key
 
+# Node.js
+node_modules/
+
 # 임시 파일
 *.tmp
 *.log

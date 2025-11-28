@@ -1,0 +1,2945 @@
+{
+  "metadata": {
+    "source": "DB grants.xlsx",
+    "generatedAt": "2025-11-28T08:45:48.642Z",
+    "version": "1.0"
+  },
+  "databases": {
+    "onda-dev": {
+      "sheetName": "DEV#304813450316 onda-dev (Auro",
+      "environment": "DEV",
+      "accounts": [
+        {
+          "user": "ari_service",
+          "hosts": "172.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, LOCK TABLES, EXECUTE, SHOW VIEW, EVENT, TRIGGER, USAGE ON ari.* TO 'ari_service'@'10.20.%.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "santorini",
+          "hosts": "%, localhost",
+          "type": "service",
+          "hasGrant": true,
+          "etc": ""
+        },
+        {
+          "user": "santorini",
+          "hosts": "%, localhost",
+          "type": "service",
+          "hasGrant": true,
+          "etc": "CREATE USER 'santorini'@'10.243.0.%' IDENTIFIED BY 's180201!';\nCREATE USER 'santorini'@'192.168.15.%' IDENTIFIED BY 's180201!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'santorini'@'10.243.0.%';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'santorini'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "vacancy_search",
+          "hosts": "172.31.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "debezium",
+          "hosts": "%\n172.29.%\n172.31.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "CREATE USER 'debezium'@'%' IDENTIFIED BY 'i8n%R5%nATp2@B!K';\nCREATE USER 'debezium'@'172.29.%' IDENTIFIED BY 'i8n%R5%nATp2@B!K';\nCREATE USER 'debezium'@'172.31.%' IDENTIFIED BY 'i8n%R5%nATp2@B!K';\nGRANT SELECT, RELOAD, SHOW DATABASES, LOCK TABLES, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'debezium'@'%';\nGRANT SELECT, RELOAD, SHOW DATABASES, LOCK TABLES, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'debezium'@'172.29.%';\nGRANT SELECT, RELOAD, SHOW DATABASES, LOCK TABLES, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'debezium'@'172.31.%';\nGRANT FLUSH_OPTIMIZER_COSTS, FLUSH_STATUS, FLUSH_TABLES, FLUSH_USER_RESOURCES, SHOW_ROUTINE ON *.* TO 'debezium'@'%';\nGRANT FLUSH_OPTIMIZER_COSTS, FLUSH_STATUS, FLUSH_TABLES, FLUSH_USER_RESOURCES, SHOW_ROUTINE ON *.* TO 'debezium'@'172.29.%';\nGRANT FLUSH_OPTIMIZER_COSTS, FLUSH_STATUS, FLUSH_TABLES, FLUSH_USER_RESOURCES, SHOW_ROUTINE ON *.* TO 'debezium'@'172.31.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "misc_api",
+          "hosts": "172.31.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "pytorini",
+          "hosts": "172.31.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "lambda_api",
+          "hosts": "172.31.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "DB 권한 제한, AWS Lamda"
+        },
+        {
+          "user": "lambda_hint",
+          "hosts": "172.31.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "DB 권한 제한, AWS Lamda"
+        },
+        {
+          "user": "osp-api",
+          "hosts": "172.29.%\n172.31.%\n192.168.15.%\n10.100.0.30\n10.100.10.30",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT ALL PRIVILEGES ON osp.* TO 'osp-api'@'172.29.%' IDENTIFIED BY 'd87fidjfzazv!';\nGRANT ALL PRIVILEGES ON osp.* TO 'osp-api'@'172.31.%' IDENTIFIED BY 'd87fidjfzazv!';\nGRANT ALL PRIVILEGES ON osp.* TO 'osp-api'@'192.168.15.%' IDENTIFIED BY 'd87fidjfzazv!';\nCREATE USER 'osp-api'@'10.100.0.30' IDENTIFIED BY 'd87fidjfzazv!';\nCREATE USER 'osp-api'@'10.100.10.30' IDENTIFIED BY 'd87fidjfzazv!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'osp-api'@'10.100.0.30';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'osp-api'@'10.100.10.30';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "address-service",
+          "hosts": "172.31.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT ALL PRIVILEGES ON address.* TO 'address-service'@'172.31.%' IDENTIFIED BY '74450Ws!MTya';"
+        },
+        {
+          "user": "hlabs_by_hpms",
+          "hosts": "172.31.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "DB 권한 제한, 허나 DB가 존재하지 않음"
+        },
+        {
+          "user": "backoffice-api",
+          "hosts": "172.31.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, SHOW VIEW ON *.* TO 'backoffice-api'@'172.31.%' IDENTIFIED BY 'J2v9JrKw@5Bv';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "backoffice-api",
+          "hosts": "172.31.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, SHOW VIEW ON sms.* TO 'backoffice-api'@'172.31.%' IDENTIFIED BY 'J2v9JrKw@5Bv';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "contract-service",
+          "hosts": "172.29.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE ON contract.* TO 'contract-service'@'172.29.%' IDENTIFIED BY 'B855vMUR7=mA';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "onda_cms",
+          "hosts": "172.29.% (EKS VPC)\n101.12.% (dev3 HPMS VPC)",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "CREATE USER 'onda_cms'@'172.29.%' IDENTIFIED BY 'K!fqoXObaKrvR';\nCREATE USER 'onda_cms'@'101.12.%' IDENTIFIED BY 'K!fqoXObaKrvR';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'onda_cms'@'172.29.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'onda_cms'@'101.12.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ondame",
+          "hosts": "172.31.%",
+          "type": "?",
+          "hasGrant": false,
+          "etc": "희원 파일에 없고, 어디에 쓰이는지 알 수 없음"
+        },
+        {
+          "user": "gds",
+          "hosts": "172.31.%",
+          "type": "?",
+          "hasGrant": true,
+          "etc": "5/17 이전에 쓰던 계정으로 추측함"
+        },
+        {
+          "user": "cs",
+          "hosts": "172.31.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "모든 DB와 hlabs DB 제한이 중복됨, 허나 hlabs DB 없음"
+        },
+        {
+          "user": "b2e-dev",
+          "hosts": "172.29.%\n172.31.%\n192.168.15.%\n10.100.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "CREATE USER IF NOT EXISTS 'b2e-dev'@'172.29.%' IDENTIFIED BY 'qlxndlroqkfrPwjd!';\nCREATE USER IF NOT EXISTS 'b2e-dev'@'172.31.%' IDENTIFIED BY 'qlxndlroqkfrPwjd!';\nCREATE USER IF NOT EXISTS 'b2e-dev'@'192.168.15.%' IDENTIFIED BY 'qlxndlroqkfrPwjd!';\nCREATE USER IF NOT EXISTS 'b2e-dev'@'10.100.%' IDENTIFIED BY 'qlxndlroqkfrPwjd!';\nGRANT SELECT, INSERT, UPDATE, DELETE ON b2e_rds_1.* TO 'b2e-dev'@'172.29.%';\nGRANT SELECT, INSERT, UPDATE, DELETE ON b2e_rds_1.* TO 'b2e-dev'@'172.31.%';\nGRANT SELECT, INSERT, UPDATE, DELETE ON b2e_rds_1.* TO 'b2e-dev'@'192.168.15.%';\nGRANT SELECT, INSERT, UPDATE, DELETE ON b2e_rds_1.* TO 'b2e-dev'@'10.100.%';"
+        },
+        {
+          "user": "bkeg-dev",
+          "hosts": "172.29.%\n172.31.%\n192.168.15.%\n10.100.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "CREATE USER IF NOT EXISTS 'bkeg-dev'@'172.29.%' IDENTIFIED BY 'qnzlddpswlsroqkf!';\nCREATE USER IF NOT EXISTS 'bkeg-dev'@'172.31.%' IDENTIFIED BY 'qnzlddpswlsroqkf!';\nCREATE USER IF NOT EXISTS 'bkeg-dev'@'192.168.15.%' IDENTIFIED BY 'qnzlddpswlsroqkf!';\nCREATE USER IF NOT EXISTS 'bkeg-dev'@'10.100.%' IDENTIFIED BY 'qnzlddpswlsroqkf!';\nGRANT SELECT, INSERT, UPDATE, DELETE ON booking_engine.* TO 'bkeg-dev'@'172.29.%';\nGRANT SELECT, INSERT, UPDATE, DELETE ON booking_engine.* TO 'bkeg-dev'@'172.31.%';\nGRANT SELECT, INSERT, UPDATE, DELETE ON booking_engine.* TO 'bkeg-dev'@'192.168.15.%';\nGRANT SELECT, INSERT, UPDATE, DELETE ON booking_engine.* TO 'bkeg-dev'@'10.100.%';"
+        },
+        {
+          "user": "bko-admin",
+          "hosts": "172.29.%\n172.31.%\n192.168.15.%\n10.100.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "CREATE USER IF NOT EXISTS 'bko-admin'@'172.29.%' IDENTIFIED BY 'qlxndlrhksflwk!';\nCREATE USER IF NOT EXISTS 'bko-admin'@'172.31.%' IDENTIFIED BY 'qlxndlrhksflwk!';\nCREATE USER IF NOT EXISTS 'bko-admin'@'192.168.15.%' IDENTIFIED BY 'qlxndlrhksflwk!';\nCREATE USER IF NOT EXISTS 'bko-admin'@'10.100.%' IDENTIFIED BY 'qlxndlrhksflwk!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON b2e_rds_1.* TO 'bko-admin'@'172.29.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON b2e_rds_1.* TO 'bko-admin'@'172.31.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON b2e_rds_1.* TO 'bko-admin'@'192.168.15.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON b2e_rds_1.* TO 'bko-admin'@'10.100.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON booking_engine.* TO 'bko-admin'@'172.29.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON booking_engine.* TO 'bko-admin'@'172.31.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON booking_engine.* TO 'bko-admin'@'192.168.15.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON booking_engine.* TO 'bko-admin'@'10.100.%';\nGRANT CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW ON b2e_rds_1.* TO 'bko-admin'@'172.29.%';\nGRANT CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW ON b2e_rds_1.* TO 'bko-admin'@'172.31.%';\nGRANT CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW ON b2e_rds_1.* TO 'bko-admin'@'192.168.15.%';\nGRANT CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW ON b2e_rds_1.* TO 'bko-admin'@'10.100.%';\nGRANT CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW ON booking_engine.* TO 'bko-admin'@'172.29.%';\nGRANT CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW ON booking_engine.* TO 'bko-admin'@'172.31.%';\nGRANT CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW ON booking_engine.* TO 'bko-admin'@'192.168.15.%';\nGRANT CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW ON booking_engine.* TO 'bko-admin'@'10.100.%';"
+        },
+        {
+          "user": "quicksight-dms",
+          "hosts": "172.19.%",
+          "type": "migrator",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'quicksight-dms'@'172.19.%' IDENTIFIED BY 'Z8m^Dp4wEL62';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "berry.yoo",
+          "hosts": "172.31.%",
+          "type": "test",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "belle",
+          "hosts": "172.31.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "eden",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE TEMPORARY TABLES, EVENT, EXECUTE, PROCESS, SHOW DATABASES, TRIGGER, ALTER ON *.* TO 'eden'@'10.243.0.%' IDENTIFIED BY 'e70e60decd02!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE TEMPORARY TABLES, EVENT, EXECUTE, PROCESS, SHOW DATABASES, TRIGGER, ALTER ON *.* TO 'eden'@'192.168.15.%' IDENTIFIED BY 'e70e60decd02!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "eric",
+          "hosts": "172.21.16.%\n192.168.15.%\n10.243.0.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'eric'@'172.21.16.%' IDENTIFIED BY 'afe793ba79af!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'eric'@'192.168.15.%' IDENTIFIED BY 'afe793ba79af!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'eric'@'10.243.0.%' IDENTIFIED BY 'afe793ba79af!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "gyu",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'gyu'@'10.243.0.%' IDENTIFIED BY '5ac49159d0bf!';\nCREATE USER 'gyu'@'192.168.15.%' IDENTIFIED BY '5ac49159d0bf!';\nGRANT ALTER, CREATE, DELETE, DROP, INDEX, INSERT, SELECT, SHOW DATABASES, SHOW VIEW, CREATE VIEW, UPDATE  ON *.* TO 'gyu'@'10.243.0.%';\nGRANT ALTER, CREATE, DELETE, DROP, INDEX, INSERT, SELECT, SHOW DATABASES, SHOW VIEW, CREATE VIEW, UPDATE  ON *.* TO 'gyu'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "hunter",
+          "hosts": "172.31.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "jade",
+          "hosts": "192.168.15.%\n10.243.%",
+          "type": "developer",
+          "hasGrant": true,
+          "etc": ""
+        },
+        {
+          "user": "julia",
+          "hosts": "172.31.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "julianne",
+          "hosts": "172.31.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "leo",
+          "hosts": "172.31.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "liam",
+          "hosts": "192.168.15.%\n10.243.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'liam'@'10.243.%' IDENTIFIED BY '4MNa\"k4]V6M*u~Vf';\nCREATE USER 'liam'@'192.168.15.%' IDENTIFIED BY '4MNa\"k4]V6M*u~Vf';\nGRANT ALTER, CREATE, DELETE, DROP, INDEX, INSERT, SELECT, SHOW DATABASES, SHOW VIEW, CREATE VIEW, UPDATE  ON *.* TO 'liam'@'10.243.%';\nGRANT ALTER, CREATE, DELETE, DROP, INDEX, INSERT, SELECT, SHOW DATABASES, SHOW VIEW, CREATE VIEW, UPDATE  ON *.* TO 'liam'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "max",
+          "hosts": "172.31.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "noah",
+          "hosts": "172.31.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "sean",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": true,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.243.0.%' IDENTIFIED BY '6adbca3fb386!' WITH GRANT OPTION;\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, \nCREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'192.168.15.%' IDENTIFIED BY '6adbca3fb386!' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "smith",
+          "hosts": "172.31.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "jessy",
+          "hosts": "172.31.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "jt",
+          "hosts": "172.31.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "karl",
+          "hosts": "172.31.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "kevin",
+          "hosts": "172.31.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "robin",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'robin'@'10.243.0.%' IDENTIFIED BY '27ZA9mXf!yeu';\nCREATE USER 'robin'@'192.168.15.%' IDENTIFIED BY '27ZA9mXf!yeu';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'robin'@'10.243.0.%';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'robin'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ryan",
+          "hosts": "172.31.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "ryuni",
+          "hosts": "172.21.16.%\n192.168.15.%\n10.243.0.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ryuni'@'172.21.16.%' IDENTIFIED BY 'DZ3}cTx@,egV7Bwz';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sebs",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'sebs'@'10.243.0.%' IDENTIFIED BY 'e8ec5fba366b!';\nCREATE USER 'sebs'@'192.168.15.%' IDENTIFIED BY 'e8ec5fba366b!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'sebs'@'10.243.0.%';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'sebs'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "jackie",
+          "hosts": "172.31.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'jackie'@'172.31.%' IDENTIFIED BY 'qFQafW5&WsDmZLI';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "william",
+          "hosts": "172.31.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "teddy",
+          "hosts": "192.168.15.%\n10.243.0.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, EXECUTE, CREATE ROUTINE, ALTER ROUTINE, TRIGGER, PROCESS, SHOW DATABASES ON *.* TO 'teddy'@'192.168.15.%' IDENTIFIED BY 'GIKTdIjmo>vHfU7P';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, EXECUTE, CREATE ROUTINE, ALTER ROUTINE, TRIGGER, PROCESS, SHOW DATABASES ON *.* TO 'teddy'@'10.243.0.%' IDENTIFIED BY 'GIKTdIjmo>vHfU7P';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "edward.ha",
+          "hosts": "172.31.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'edward.ha'@'172.31.%' IDENTIFIED BY 'cnqRny(7fEBF$5g8';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "marcos",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'marcos'@'10.243.0.%' IDENTIFIED BY 'EVtOPTQnC&}|!sNO';\nCREATE USER 'marcos'@'192.168.15.%' IDENTIFIED BY 'EVtOPTQnC&}|!sNO';\nGRANT SELECT, INSERT, UPDATE, DELETE, INDEX, ALTER, CREATE, CREATE VIEW, SHOW VIEW, PROCESS, TRIGGER, SHOW DATABASES ON *.* TO 'marcos'@'10.243.0.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, INDEX, ALTER, CREATE, CREATE VIEW, SHOW VIEW, PROCESS, TRIGGER, SHOW DATABASES ON *.* TO 'marcos'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "will",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER, DROP ON *.* TO 'will'@'10.243.0.%' IDENTIFIED BY 'mbr8auDF$K69wME8';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER, DROP ON *.* TO 'will'@'192.168.15.%' IDENTIFIED BY 'mbr8auDF$K69wME8';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "mia",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'mia'@'10.243.0.%' IDENTIFIED BY '5VaTNdrzEmq^TW!z';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'mia'@'192.168.15.%' IDENTIFIED BY '5VaTNdrzEmq^TW!z';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "isaac",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'isaac'@'10.243.0.%' IDENTIFIED BY 'dGhN!vs8Z2Ix';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'isaac'@'192.168.15.%' IDENTIFIED BY 'dGhN!vs8Z2Ix';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ian",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT ALTER, CREATE, DELETE, DROP, INDEX, INSERT, SELECT, SHOW DATABASES, SHOW VIEW, CREATE VIEW, UPDATE  ON *.* TO 'ian'@'10.243.0.%' IDENTIFIED BY 'CSkhDySeGe!Pgx6k';\nGRANT ALTER, CREATE, DELETE, DROP, INDEX, INSERT, SELECT, SHOW DATABASES, SHOW VIEW, CREATE VIEW, UPDATE  ON *.* TO 'ian'@'192.168.15.%' IDENTIFIED BY 'CSkhDySeGe!Pgx6k';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "luden",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT ALTER, CREATE, DELETE, DROP, INDEX, INSERT, SELECT, SHOW DATABASES, SHOW VIEW, CREATE VIEW, UPDATE  ON *.* TO 'luden'@'10.243.0.%' IDENTIFIED BY 'n&sUCOC7oSWi';\nGRANT ALTER, CREATE, DELETE, DROP, INDEX, INSERT, SELECT, SHOW DATABASES, SHOW VIEW, CREATE VIEW, UPDATE  ON *.* TO 'luden'@'192.168.15.%' IDENTIFIED BY 'n&sUCOC7oSWi';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "terry",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, DROP, INDEX, ALTER, CREATE, CREATE VIEW, SHOW VIEW  ON *.* TO 'terry'@'10.243.0.%' IDENTIFIED BY 'WavWkI8K~0uQ';\nGRANT SELECT, INSERT, UPDATE, DELETE, DROP, INDEX, ALTER, CREATE, CREATE VIEW, SHOW VIEW  ON *.* TO 'terry'@'192.168.15.%' IDENTIFIED BY 'WavWkI8K~0uQ';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "eddy",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, ALTER ON *.* TO 'eddy'@'10.243.0.%' IDENTIFIED BY 'CEpq7VC^0XU4';\nGRANT SELECT, INSERT, UPDATE, DELETE, ALTER ON *.* TO 'eddy'@'192.168.15.%' IDENTIFIED BY 'CEpq7VC^0XU4';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "dana",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, ALTER ON *.* TO 'dana'@'10.243.0.%' IDENTIFIED BY '4Vd0x8&PXbQB';\nGRANT SELECT, INSERT, UPDATE, DELETE, ALTER ON *.* TO 'dana'@'192.168.15.%' IDENTIFIED BY '4Vd0x8&PXbQB';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ann",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, SHOW DATABASES, SHOW VIEW ON *.* TO 'ann'@'10.243.0.%' IDENTIFIED BY '5&$8SR#IRcuI2c';\nGRANT SELECT, SHOW DATABASES, SHOW VIEW ON *.* TO 'ann'@'192.168.15.%' IDENTIFIED BY '5&$8SR#IRcuI2c';\nFLUSH PRIVILEGES;\nGRANT SELECT, UPDATE ON voucher.* TO 'ann'@'10.243.0.%';\nGRANT SELECT, UPDATE ON voucher.* TO 'ann'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "django",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "CREATE USER 'django'@'10.243.0.%' IDENTIFIED BY 'jECE28z0799!';\nCREATE USER 'django'@'192.168.15.%' IDENTIFIED BY 'jECE28z0799!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER, DROP ON *.* TO 'django'@'10.243.0.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER, DROP ON *.* TO 'django'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "tree",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'tree'@'10.243.0.%' IDENTIFIED BY 'r&T5eYML7L^=';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'tree'@'192.168.15.%' IDENTIFIED BY 'r&T5eYML7L^=';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "Jennifer",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "CREATE USER 'jennifer'@'10.243.0.%' IDENTIFIED BY 'oxiG607tofsr';\nCREATE USER 'jennifer'@'192.168.15.%' IDENTIFIED BY 'oxiG607tofsr';\nGRANT SELECT, INSERT, UPDATE, DELETE, DROP, INDEX, ALTER, CREATE, CREATE VIEW, SHOW VIEW ON *.* TO 'jennifer'@'10.243.0.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, DROP, INDEX, ALTER, CREATE, CREATE VIEW, SHOW VIEW ON *.* TO 'jennifer'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "shane",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'shane'@'10.243.0.%' IDENTIFIED WITH caching_sha2_password BY 'op6Gvp9SzS1&';\nCREATE USER 'shane'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY 'op6Gvp9SzS1&';\nGRANT SELECT, INSERT, UPDATE, DELETE, PROCESS, SHOW DATABASES, REFERENCES ON *.* TO 'shane'@'10.243.0.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, PROCESS, SHOW DATABASES, REFERENCES ON *.* TO 'shane'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "justin",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'justin'@'10.243.0.%' IDENTIFIED WITH caching_sha2_password BY 'qAN$$6Ys7beH';\nCREATE USER 'justin'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY 'qAN$$6Ys7beH';\nGRANT SELECT, INSERT, UPDATE, DELETE, ALTER, CREATE, DROP, PROCESS, SHOW DATABASES ON *.* TO 'justin'@'10.243.0.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, ALTER, CREATE, DROP, PROCESS, SHOW DATABASES ON *.* TO 'justin'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "karl.seong",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'karl.seong'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '0xDX8U5&047!';\nCREATE USER 'karl.seong'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY '0xDX8U5&047!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'karl.seong'@'10.13.30.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'karl.seong'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "roin.noh",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'roin.noh'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'X45V6O:wPE6)';\nCREATE USER 'roin.noh'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY 'X45V6O:wPE6)';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'roin.noh'@'10.13.30.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'roin.noh'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ted.kim",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'ted.kim'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'ieAAkx1U6b7%';\nCREATE USER 'ted.kim'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY 'ieAAkx1U6b7%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'ted.kim'@'10.13.30.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'ted.kim'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        }
+      ]
+    },
+    "pplus-dev-clus": {
+      "sheetName": "DEV#304813450316 pplus-dev-clus",
+      "environment": "DEV",
+      "accounts": [
+        {
+          "user": "api",
+          "hosts": "172.19.%\n10.243.0.%\n192.168.15.%\n172.29.%\n10.100.10.30\n10.100.0.30",
+          "type": "service",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "isaac",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "ann",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "andy.lee",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "sean",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": true,
+          "etc": ""
+        },
+        {
+          "user": "jade",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "roin.noh",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "cain.choi",
+          "hosts": "192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "ted.kim",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": ""
+        }
+      ]
+    },
+    "b2e-rds-dev": {
+      "sheetName": "DEV#304813450316 b2e-rds-dev (A",
+      "environment": "DEV",
+      "accounts": [
+        {
+          "user": "b2e-dev",
+          "hosts": "%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "isaac",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "ann",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "andy.lee",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "bkeg-dev",
+          "hosts": "%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "booking-dev",
+          "hosts": "%",
+          "type": "unknown",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "sean",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": true,
+          "etc": ""
+        },
+        {
+          "user": "shane",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": ""
+        }
+      ]
+    },
+    "Ppurio": {
+      "sheetName": "DEV#304813450316 Ppurio (Aurora",
+      "environment": "DEV",
+      "accounts": [
+        {
+          "user": "ppurio_user",
+          "hosts": "%",
+          "type": "unknown",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "liam",
+          "hosts": "192.168.15.%\n10.243.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": ""
+        }
+      ]
+    },
+    "booking-prd": {
+      "sheetName": "PROD booking-prd rds",
+      "environment": "PROD",
+      "accounts": [
+        {
+          "user": "heewon",
+          "hosts": "%",
+          "type": "dba",
+          "hasGrant": true,
+          "etc": ""
+        },
+        {
+          "user": "booking-prod",
+          "hosts": "10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "CREATE USER 'booking-prod'@'10.30.%' IDENTIFIED BY 'Ondackxkqnzld@@';\nGRANT SELECT, INSERT, UPDATE, DELETE ON *.* TO 'booking-prod'@'10.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "querypie-read",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'querypie-read'@'10.13.30.%' IDENTIFIED BY 't!7WR$crlF2i';\nGRANT SELECT, INSERT, UPDATE, DELETE, SHOW DATABASES, PROCESS ON *.* TO 'querypie-read'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "querypie-VDI",
+          "hosts": "10.13.30.%",
+          "type": "vdi",
+          "hasGrant": true,
+          "etc": "CREATE USER 'querypie-VDI'@'10.13.30.%' IDENTIFIED BY 'wteW2909esyF';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'querypie-VDI'@'10.13.30.%' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sean",
+          "hosts": "10.13.30.%\n10.243.0.%\n192.168.15.%",
+          "type": "admin",
+          "hasGrant": true,
+          "etc": "CREATE USER 'sean'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'10.243.0.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.13.30.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.243.0.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "justin",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'justin'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'qAN$$6Ys7beH';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'justin'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "will",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'will'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'mbr8auDF$K69wME8';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'will'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        }
+      ]
+    },
+    "b2e-rds-prd": {
+      "sheetName": "PROD b2e-rds-prd",
+      "environment": "PROD",
+      "accounts": [
+        {
+          "user": "heewon",
+          "hosts": "%",
+          "type": "dba",
+          "hasGrant": true,
+          "etc": ""
+        },
+        {
+          "user": "booking-prod",
+          "hosts": "10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "CREATE USER 'booking-prod'@'10.30.%' IDENTIFIED BY 'Ondackxkqnzld@@';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'booking-prod'@'10.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "querypie-read",
+          "hosts": "10.13.30.8\n10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'querypie-read'@'10.13.30.%' IDENTIFIED BY 't!7WR$crlF2i';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'querypie-read'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "quicksight-dms",
+          "hosts": "10.60.%",
+          "type": "migrator",
+          "hasGrant": false,
+          "etc": "CREATE USER 'quicksight-dms'@'10.60.%' IDENTIFIED BY 'Z8m^Dp4wEL62';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'quicksight-dms'@'10.60.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "querypie-VDI",
+          "hosts": "10.13.30.%",
+          "type": "vdi",
+          "hasGrant": true,
+          "etc": "CREATE USER 'querypie-VDI'@'10.13.30.%' IDENTIFIED BY 'wteW2909esyF';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'querypie-VDI'@'10.13.30.%' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "be-viewer",
+          "hosts": "10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, SHOW DATABASES ON *.* TO 'be-viewer'@'10.30.%' IDENTIFIED BY 'U@U9iSMKrI';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "booking_engine",
+          "hosts": "10.12.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "CREATE USER 'booking_engine'@'10.30.%' IDENTIFIED BY 'WQLq89kgz!nMNXDe';\nGRANT SELECT, UPDATE, DELETE, INSERT, SHOW DATABASES ON *.* TO 'booking_engine'@'10.30.%';\n\nGRANT SELECT, UPDATE, DELETE, INSERT, SHOW DATABASES ON *.* TO 'booking_engine'@'10.12.%' IDENTIFIED BY 'WQLq89kgz!nMNXDe';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "voucher",
+          "hosts": "10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "CREATE USER 'voucher'@'10.30.%' IDENTIFIED BY 'dm3JETel0tiUpg';\nGRANT SELECT, INSERT, UPDATE, DELETE ON voucher.* TO 'voucher'@'10.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "n8n",
+          "hosts": "10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "CREATE USER 'n8n'@'10.30.%' IDENTIFIED WITH caching_sha2_password BY '8ATNF0qnBk!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'n8n'@'10.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sean",
+          "hosts": "10.13.30.%\n10.243.0.%\n192.168.15.%",
+          "type": "admin",
+          "hasGrant": false,
+          "etc": "CREATE USER 'sean'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'10.243.0.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.13.30.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.243.0.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ian",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'ian'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'CSkhDySeGe!Pgx6k';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'ian'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "justin",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'justin'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'qAN$$6Ys7beH';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'justin'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "eden",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'eden'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'e70e60decd02!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'eden'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "will",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'will'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'mbr8auDF$K69wME8';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'will'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "amy",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'amy'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'kH977!6XEEu=';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'amy'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "dana",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'dana'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '4Vd0x8&PXbQB';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'dana'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "dustin",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'dustin'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'K4ni&a1jG1X[';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'dustin'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "jade",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'jade'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '8a884dd95ddf!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'jade'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "shane",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'shane'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'op6Gvp9SzS1&';\nGRANT SELECT, PROCESS, SHOW DATABASES, INSERT, UPDATE ON *.* TO 'shane'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "tessa",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'tessa'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'hH98n#DE40YF';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'tessa'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ann",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'ann'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '5&$8SR#IRcuI2c';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ann'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sebs",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'sebs'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'e8ec5fba366b!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'sebs'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "luan",
+          "hosts": "10.13.30.%",
+          "type": "unknown",
+          "hasGrant": false,
+          "etc": "CREATE USER 'luan'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '!u8QY&RW*622';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'luan'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        }
+      ]
+    },
+    "onda-aurora": {
+      "sheetName": "PROD onda-aurora rds",
+      "environment": "PROD",
+      "accounts": [
+        {
+          "user": "heewon",
+          "hosts": "%",
+          "type": "dba",
+          "hasGrant": true,
+          "etc": ""
+        },
+        {
+          "user": "santorini",
+          "hosts": "%, localhost",
+          "type": "service",
+          "hasGrant": true,
+          "etc": ""
+        },
+        {
+          "user": "santorini",
+          "hosts": "192.168.%",
+          "type": "service",
+          "hasGrant": true,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'santorini'@'192.168.%' IDENTIFIED BY 's180201!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "pytorini",
+          "hosts": "10.10.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "misc_api",
+          "hosts": "10.10.%\n10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE ON *.* TO 'misc_api'@'10.30.%' IDENTIFIED BY '3b6d33fdce38!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "lambda_api",
+          "hosts": "10.10.%\n10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "DB 권한 제한, AWS Lamda\nGRANT SELECT, INSERT, UPDATE ON *.* TO 'lambda_api'@'10.30.%' IDENTIFIED BY '01eedc0d1155!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "lambda_hint",
+          "hosts": "10.10.%\n10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "DB 권한 제한, AWS Lamda\nGRANT SELECT, UPDATE ON *.* TO 'lambda_hint'@'10.30.%' IDENTIFIED BY '7dc4b31df05c!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sean",
+          "hosts": "192.168.15.%\n10.243.0.%\n172.21.16.%",
+          "type": "developer",
+          "hasGrant": true,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.243.%' IDENTIFIED BY '6adbca3fb386!' WITH GRANT OPTION;\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'172.21.16.%' IDENTIFIED BY '6adbca3fb386!' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "jade",
+          "hosts": "192.168.15.%\n10.243.0.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'jade'@'192.168.15.%' IDENTIFIED BY '8a884dd95ddf!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'jade'@'10.243.0.%' IDENTIFIED BY '8a884dd95ddf!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "eden",
+          "hosts": "192.168.15.%\n10.243.0.%\n172.21.16.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE TEMPORARY TABLES, EVENT, EXECUTE, PROCESS, SHOW DATABASES, TRIGGER ON *.* TO 'eden'@'192.168.15.%' IDENTIFIED BY 'e70e60decd02!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE TEMPORARY TABLES, EVENT, EXECUTE, PROCESS, SHOW DATABASES, TRIGGER ON *.* TO 'eden'@'10.243.0.%' IDENTIFIED BY 'e70e60decd02!';\n\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'eden'@'172.21.16.%' IDENTIFIED BY 'e70e60decd02!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "joey",
+          "hosts": "10.10.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "brian",
+          "hosts": "10.10.%\n192.168.15.%\n10.243.0.%",
+          "type": "developer",
+          "hasGrant": true,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'brian'@'10.10.%' WITH GRANT OPTION;\nDROP USER 'brian'@'10.10.%';\nDROP USER 'brian'@'10.243.0.%';\nDROP USER 'brian'@'192.168.15.%';"
+        },
+        {
+          "user": "gyu",
+          "hosts": "192.168.15.%\n10.243.0.%\n172.21.16.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, REFERENCES, INDEX, SHOW DATABASES, CREATE TEMPORARY TABLES, SHOW VIEW, EVENT, TRIGGER ON *.* TO 'gyu'@'192.168.15.%' IDENTIFIED BY '5ac49159d0bf!';\nGRANT SELECT, PROCESS, REFERENCES, INDEX, SHOW DATABASES, CREATE TEMPORARY TABLES, SHOW VIEW, EVENT, TRIGGER ON *.* TO 'gyu'@'10.243.0.%' IDENTIFIED BY '5ac49159d0bf!';\nGRANT SELECT, SHOW DATABASES ON *.* TO 'gyu'@'172.21.16.%' IDENTIFIED BY '5ac49159d0bf!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "eric",
+          "hosts": "192.168.15.%\n10.243.0.%\n172.21.16.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'eric'@'192.168.15.%' IDENTIFIED BY 'afe793ba79af!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'eric'@'10.243.0.%' IDENTIFIED BY 'afe793ba79af!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'eric'@'172.21.16.%' IDENTIFIED BY 'afe793ba79af!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "kay",
+          "hosts": "10.10.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "ieuan",
+          "hosts": "10.10.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "퇴사함"
+        },
+        {
+          "user": "juno",
+          "hosts": "10.10.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "lucas",
+          "hosts": "10.10.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "희원 파일에 없음"
+        },
+        {
+          "user": "hlabs_by_hpms",
+          "hosts": "10.10.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "DB 권한 제한, 허나 DB가 존재하지 않음"
+        },
+        {
+          "user": "damon",
+          "hosts": "10.10.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "hans",
+          "hosts": "10.10.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "henry",
+          "hosts": "10.10.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "kevin",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'kevin'@'10.243.0.%' IDENTIFIED BY '8f1e81b7a51f!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'kevin'@'192.168.15.%' IDENTIFIED BY '8f1e81b7a51f!';"
+        },
+        {
+          "user": "ryan",
+          "hosts": "10.243.0.%\n192.168.15.%\n172.21.16.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ryan'@'10.243.0.%' IDENTIFIED BY 'c5ce^9PVd8$@&mAU';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ryan'@'192.168.15.%' IDENTIFIED BY 'c5ce^9PVd8$@&mAU';\nGRANT SELECT, SHOW DATABASES ON *.* TO 'ryan'@'172.21.16.%' IDENTIFIED BY 'c5ce^9PVd8$@&mAU';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sebs",
+          "hosts": "10.243.%\n192.168.15.%\n172.21.16.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'sebs'@'10.243.%' IDENTIFIED BY 'e8ec5fba366b!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'sebs'@'192.168.15.%' IDENTIFIED BY 'e8ec5fba366b!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'sebs'@'172.21.16.%' IDENTIFIED BY 'e8ec5fba366b!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "smith",
+          "hosts": "10.10.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'smith'@'10.10.%' IDENTIFIED BY 'cT82jLXL-J6a$u5P';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'smith'@'192.168.15.%' IDENTIFIED BY 'cT82jLXL-J6a$u5P';"
+        },
+        {
+          "user": "cs",
+          "hosts": "%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "모든 DB와 hlabs DB 제한이 중복됨, 허나 hlabs DB 없음"
+        },
+        {
+          "user": "gds",
+          "hosts": "%",
+          "type": "?",
+          "hasGrant": true,
+          "etc": "5/17 이전에 쓰던 계정으로 추측함"
+        },
+        {
+          "user": "ondame",
+          "hosts": "%",
+          "type": "?",
+          "hasGrant": false,
+          "etc": "희원 파일에 없고, 어디에 쓰이는지 알 수 없음"
+        },
+        {
+          "user": "osp-api",
+          "hosts": "10.10.%\n10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "OSP에서 임시로 사용될 brian DB권한 추가"
+        },
+        {
+          "user": "julia",
+          "hosts": "192.168.15.%\n10.243.0.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'julia'@'192.168.15.%' IDENTIFIED BY 'vlxdmczt73ei!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'julia'@'10.243.0.%' IDENTIFIED BY 'vlxdmczt73ei!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "karl",
+          "hosts": "10.10.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "Data Scientist\nGRANT SELECT ON *.* TO 'karl'@'10.10.%' IDENTIFIED BY 'c31a690b528b!';\nGRANT SELECT ON *.* TO 'karl'@'192.168.15.%' IDENTIFIED BY 'c31a690b528b!';"
+        },
+        {
+          "user": "liam",
+          "hosts": "192.168.15.%\n10.243.0.%\n172.21.16.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'liam'@'192.168.15.%' IDENTIFIED BY '4MNa\"k4]V6M*u~Vf';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'liam'@'10.243.0.%' IDENTIFIED BY '4MNa\"k4]V6M*u~Vf';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'liam'@'172.21.16.10' IDENTIFIED BY '4MNa\"k4]V6M*u~Vf';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "william",
+          "hosts": "10.243.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT ON `ari`.* TO 'william'@'10.243.0.%' IDENTIFIED BY 'Aa6Jv3tUFuT=&DUN';\nGRANT SELECT ON `pcs`.* TO 'william'@'10.243.0.%' IDENTIFIED BY 'Aa6Jv3tUFuT=&DUN';\nGRANT SELECT ON `raw`.* TO 'william'@'10.243.0.%' IDENTIFIED BY 'Aa6Jv3tUFuT=&DUN';\nGRANT SELECT ON `ari`.* TO 'william'@'192.168.15.%' IDENTIFIED BY 'Aa6Jv3tUFuT=&DUN';\nGRANT SELECT ON `pcs`.* TO 'william'@'192.168.15.%' IDENTIFIED BY 'Aa6Jv3tUFuT=&DUN';\nGRANT SELECT ON `raw`.* TO 'william'@'192.168.15.%' IDENTIFIED BY 'Aa6Jv3tUFuT=&DUN';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "jt",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'jt'@'10.243.0.%' IDENTIFIED BY 'NuQV3td7kXeRTjJk';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'jt'@'192.168.15.%' IDENTIFIED BY 'NuQV3td7kXeRTjJk';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "julianne",
+          "hosts": "10.10.%\n192.168.15.%\n10.243.0.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'julianne'@'10.10.%' IDENTIFIED BY 'SN4fU?UwXwU!3Ydh';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'julianne'@'192.168.15.%' IDENTIFIED BY 'SN4fU?UwXwU!3Ydh';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'julianne'@'10.243.0.%' IDENTIFIED BY 'SN4fU?UwXwU!3Ydh';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "berry.yoo",
+          "hosts": "10.243.%",
+          "type": "test",
+          "hasGrant": false,
+          "etc": "GRANT SELECT ON *.* TO 'berry.yoo'@'10.243.%' IDENTIFIED BY 'c!J@Ra*7ZMYr^Cw';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "leo",
+          "hosts": "10.10.%\n192.168.15.%\n10.243.0.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'leo'@'10.10.%' IDENTIFIED BY 'AF)P+^5V28P-McpL';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'leo'@'192.168.15.%' IDENTIFIED BY 'AF)P+^5V28P-McpL';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'leo'@'10.243.0.%' IDENTIFIED BY 'AF)P+^5V28P-McpL';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "peter",
+          "hosts": "10.10.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'peter'@'10.10.%' IDENTIFIED BY 'KrAHjqsz25vBAevJ';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "noah",
+          "hosts": "10.10.%\n192.168.15.%\n10.243.0.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'noah'@'10.10.%' IDENTIFIED BY '6!8nYmHYW?a>UXKr';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'noah'@'192.168.15.%' IDENTIFIED BY '6!8nYmHYW?a>UXKr';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'noah'@'10.243.0.%' IDENTIFIED BY '6!8nYmHYW?a>UXKr';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "belle",
+          "hosts": "192.168.15.%\n10.243.0.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'belle'@'192.168.15.%' IDENTIFIED BY '5Swm^QFFTEzMRr&=';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'belle'@'10.243.0.%' IDENTIFIED BY '5Swm^QFFTEzMRr&=';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "miner\n외부 컨설팅 조력자",
+          "hosts": "10.10.243.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT ON `ari`.* TO 'miner'@'10.243.0.%' IDENTIFIED BY 'WwZ~3bxX$73F}tH7';\nGRANT SELECT ON `pcs`.* TO 'miner'@'10.243.0.%' IDENTIFIED BY 'WwZ~3bxX$73F}tH7';\nGRANT SELECT ON `ari`.* TO 'miner'@'192.168.15.%' IDENTIFIED BY 'WwZ~3bxX$73F}tH7';\nGRANT SELECT ON `pcs`.* TO 'miner'@'192.168.15.%' IDENTIFIED BY 'WwZ~3bxX$73F}tH7';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "jessy",
+          "hosts": "10.10.%\n10.243.0.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'jessy'@'10.10.%' IDENTIFIED BY 'NP%UBpmum5?bv-44';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'jessy'@'192.168.15.%' IDENTIFIED BY 'NP%UBpmum5?bv-44';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'jessy'@'10.243.0.%' IDENTIFIED BY 'NP%UBpmum5?bv-44';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "harry",
+          "hosts": "10.10.243.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'harry'@'192.168.15.%' IDENTIFIED BY 'MiEaG3@a9wp4RbO';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'harry'@'10.243.0.%' IDENTIFIED BY 'MiEaG3@a9wp4RbO';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "max",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'max'@'192.168.15.%' IDENTIFIED BY 'FpgDNnFRZu^MZd!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'max'@'10.243.0.%' IDENTIFIED BY 'FpgDNnFRZu^MZd!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "vacancy_search",
+          "hosts": "10.10.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "CREATE USER 'vacancy_search'@'10.10.%' IDENTIFIED BY '5*Bv=lwh&c8sAT+-:wZ}By.K$we81)1c';\nGRANT SELECT ON ari.* TO 'vacancy_search'@'10.10.%';\nGRANT SELECT ON pcs.* TO 'vacancy_search'@'10.10.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "theo",
+          "hosts": "10.243.0.%\n192.168.15.%\n172.21.16.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'theo'@'192.168.15.%' IDENTIFIED BY 'E@V9_f5LZCyfWumX';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'theo'@'10.243.0.%' IDENTIFIED BY 'E@V9_f5LZCyfWumX';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'theo'@'172.21.16.%' IDENTIFIED BY 'E@V9_f5LZCyfWumX';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "robin",
+          "hosts": "10.243.0.%\n192.168.15.%\n172.21.16.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'robin'@'10.243.0.%' IDENTIFIED BY '27ZA9mXf!yeu';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'robin'@'192.168.15.%' IDENTIFIED BY '27ZA9mXf!yeu';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'robin'@'172.21.16.%' IDENTIFIED BY '27ZA9mXf!yeu';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ari_service",
+          "hosts": "10.20.%\n10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, LOCK TABLES, EXECUTE, SHOW VIEW, EVENT, TRIGGER, USAGE ON ari.* TO 'ari_service'@'10.20.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, LOCK TABLES, EXECUTE, SHOW VIEW, EVENT, TRIGGER, USAGE ON ari.* TO 'ari_service'@'10.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ari_service2",
+          "hosts": "10.20.%\n10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, LOCK TABLES, EXECUTE, SHOW VIEW, EVENT, TRIGGER, USAGE ON ari.* TO 'ari_service2'@'10.20.%' IDENTIFIED BY 'IO-(++=716AExoekmyLu)C)Or';\nGRANT SELECT, INSERT, UPDATE, DELETE, LOCK TABLES, EXECUTE, SHOW VIEW, EVENT, TRIGGER, USAGE ON ari.* TO 'ari_service2'@'10.30.%' IDENTIFIED BY 'IO-(++=716AExoekmyLu)C)Or';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ian",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ian'@'192.168.15.%' IDENTIFIED BY 'CSkhDySeGe!Pgx6k';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ian'@'10.243.0.%' IDENTIFIED BY 'CSkhDySeGe!Pgx6k';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "edward.ha",
+          "hosts": "10.243.0.%\n192.168.15.%\n172.21.16.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'edward.ha'@'192.168.15.%' IDENTIFIED BY 'cnqRny(7fEBF$5g8';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'edward.ha'@'10.243.0.%' IDENTIFIED BY 'cnqRny(7fEBF$5g8';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'edward.ha'@'172.21.16.%' IDENTIFIED BY 'cnqRny(7fEBF$5g8';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "hunter",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'hunter'@'192.168.15.%' IDENTIFIED BY 'GNU=JMw8V4eQN2';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'hunter'@'10.243.0.%' IDENTIFIED BY 'GNU=JMw8V4eQN2';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "teddy",
+          "hosts": "10.243.0.%\n192.168.15.%\n172.21.16.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, TRIGGER, SHOW DATABASES ON *.* TO 'teddy'@'192.168.15.%' IDENTIFIED BY 'GIKTdIjmo>vHfU7P';\nGRANT SELECT, PROCESS, TRIGGER, SHOW DATABASES ON *.* TO 'teddy'@'10.243.0.%' IDENTIFIED BY 'GIKTdIjmo>vHfU7P';\nGRANT SELECT, PROCESS, TRIGGER, SHOW DATABASES ON *.* TO 'teddy'@'172.21.16.%' IDENTIFIED BY 'GIKTdIjmo>vHfU7P';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "marcos",
+          "hosts": "10.243.0.%\n192.168.15.%\n172.21.16.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'marcos'@'192.168.15.%' IDENTIFIED BY 'EVtOPTQnC&}|!sNO';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'marcos'@'10.243.0.%' IDENTIFIED BY 'EVtOPTQnC&}|!sNO';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'marcos'@'172.21.16.%' IDENTIFIED BY 'EVtOPTQnC&}|!sNO';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "lucas",
+          "hosts": "172.21.16.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'lucas'@'172.21.16.%' IDENTIFIED BY 'T^(YKDQ&ce';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ryuni",
+          "hosts": "10.243.0.%\n192.168.15.%\n172.21.16.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ryuni'@'10.243.0.%' IDENTIFIED BY 'DZ3}cTx@,egV7Bwz';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ryuni'@'192.168.15.%' IDENTIFIED BY 'DZ3}cTx@,egV7Bwz';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ryuni'@'172.21.16.%' IDENTIFIED BY 'DZ3}cTx@,egV7Bwz';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "backoffice-api",
+          "hosts": "10.10.%\n10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, SHOW DATABASES, SHOW VIEW ON *.* TO 'backoffice-api'@'10.10.%' IDENTIFIED BY 'J2v9JrKw@5Bv';\nGRANT SELECT, SHOW DATABASES, SHOW VIEW ON *.* TO 'backoffice-api'@'10.30.%' IDENTIFIED BY 'J2v9JrKw@5Bv';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "isaac",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT ON ari.* TO 'isaac'@'10.243.0.%' IDENTIFIED BY 'dGhN!vs8Z2Ix';\nGRANT SELECT ON pcs.* TO 'isaac'@'10.243.0.%' IDENTIFIED BY 'dGhN!vs8Z2Ix';\nGRANT SELECT ON pms.* TO 'isaac'@'10.243.0.%' IDENTIFIED BY 'dGhN!vs8Z2Ix';\nGRANT SELECT ON raw.* TO 'isaac'@'10.243.0.%' IDENTIFIED BY 'dGhN!vs8Z2Ix';\nGRANT SELECT ON sales.* TO 'isaac'@'10.243.0.%' IDENTIFIED BY 'dGhN!vs8Z2Ix';\nGRANT SELECT ON ari.* TO 'isaac'@'192.168.15.%' IDENTIFIED BY 'dGhN!vs8Z2Ix';\nGRANT SELECT ON pcs.* TO 'isaac'@'192.168.15.%' IDENTIFIED BY 'dGhN!vs8Z2Ix';\nGRANT SELECT ON pms.* TO 'isaac'@'192.168.15.%' IDENTIFIED BY 'dGhN!vs8Z2Ix';\nGRANT SELECT ON raw.* TO 'isaac'@'192.168.15.%' IDENTIFIED BY 'dGhN!vs8Z2Ix';\nGRANT SELECT ON sales.* TO 'isaac'@'192.168.15.%' IDENTIFIED BY 'dGhN!vs8Z2Ix';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "justin",
+          "hosts": "10.243.0.%\n192.168.15.%\n172.21.16.10",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, SHOW DATABASES, SHOW VIEW, EVENT, TRIGGER ON *.* TO 'justin'@'192.168.15.%' IDENTIFIED BY 'qAN$$6Ys7beH';\nGRANT SELECT, SHOW DATABASES, SHOW VIEW, EVENT, TRIGGER ON *.* TO 'justin'@'10.243.0.%' IDENTIFIED BY 'qAN$$6Ys7beH';\nGRANT SELECT, SHOW DATABASES, SHOW VIEW, EVENT, TRIGGER ON *.* TO 'justin'@'172.21.16.10' IDENTIFIED BY 'qAN$$6Ys7beH';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ann",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, SHOW DATABASES, SHOW VIEW ON *.* TO 'ann'@'10.243.0.%' IDENTIFIED BY '5&$8SR#IRcuI2c';\nGRANT SELECT, SHOW DATABASES, SHOW VIEW ON *.* TO 'ann'@'192.168.15.%' IDENTIFIED BY '5&$8SR#IRcuI2c';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ods-mart",
+          "hosts": "10.10.%\n10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, SHOW DATABASES, SHOW VIEW ON *.* TO 'ann'@'10.243.0.%' IDENTIFIED BY '5&$8SR#IRcuI2c';\nGRANT SELECT, SHOW DATABASES, SHOW VIEW ON *.* TO 'ann'@'192.168.15.%' IDENTIFIED BY '5&$8SR#IRcuI2c';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "will",
+          "hosts": "10.243.0.%\n192.168.15.%\n172.21.16.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, SHOW DATABASES, SHOW VIEW, SHOW TABLES, EVENT, TRIGGER ON *.* TO 'will'@'10.243.0.%' IDENTIFIED BY 'mbr8auDF$K69wME8';\nGRANT SELECT, SHOW DATABASES, SHOW VIEW, SHOW TABLES, EVENT, TRIGGER ON *.* TO 'will'@'192.168.15.%' IDENTIFIED BY 'mbr8auDF$K69wME8';\nGRANT SELECT, SHOW DATABASES, TRIGGER ON *.* TO 'will'@'172.21.16.%' IDENTIFIED BY 'mbr8auDF$K69wME8';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "mia",
+          "hosts": "10.243.0.%\n192.168.15.%\n172.21.16.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'mia'@'10.243.0.%' IDENTIFIED BY '5VaTNdrzEmq^TW!z';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'mia'@'192.168.15.%' IDENTIFIED BY '5VaTNdrzEmq^TW!z';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'mia'@'172.21.16.%' IDENTIFIED BY '5VaTNdrzEmq^TW!z';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "querypie-read",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, TRIGGER, SHOW DATABASES ON *.* TO 'querypie-read'@'10.13.30.%' IDENTIFIED BY 't!7WR$crlF2i';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "quicksight-dms",
+          "hosts": "10.60.%",
+          "type": "migrator",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'quicksight-dms'@'10.60.%' IDENTIFIED BY 'Z8m^Dp4wEL62';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "querypie-VDI",
+          "hosts": "10.13.30.%",
+          "type": "vdi",
+          "hasGrant": true,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'querypie-VDI'@'10.13.30.%' IDENTIFIED BY 'wteW2909esyF' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sean",
+          "hosts": "10.13.30.%\n10.243.0.%\n192.168.15.%",
+          "type": "admin",
+          "hasGrant": true,
+          "etc": "CREATE USER 'sean'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'10.243.0.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.13.30.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.243.0.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "eden",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'eden'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'e70e60decd02!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'eden'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "jade",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'jade'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '8a884dd95ddf!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'jade'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "justin",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'justin'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'qAN$$6Ys7beH';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'justin'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "amy",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'amy'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'kH977!6XEEu=';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'amy'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "will",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'will'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'mbr8auDF$K69wME8';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'will'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ann",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'ann'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '5&$8SR#IRcuI2c';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ann'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "dana",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'dana'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '4Vd0x8&PXbQB';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'dana'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "dustin",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'dustin'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'K4ni&a1jG1X[';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'dustin'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "gyu",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'gyu'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '5ac49159d0bf!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'gyu'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ian",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'ian'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'CSkhDySeGe!Pgx6k';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ian'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "isaac",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'isaac'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'dGhN!vs8Z2Ix';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'isaac'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "liam",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'liam'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '4MNa\"k4]V6M*u~Vf';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'liam'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "marcos",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'marcos'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'EVtOPTQnC&}|!sNO';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'marcos'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "MJ",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'MJ'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'znR8H3!5n24P';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'MJ'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "robin",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'robin'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '27ZA9mXf!yeu';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'robin'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "say",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'say'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '8gJRI77un::c';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'say'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sebs",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'sebs'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'e8ec5fba366b!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'sebs'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "tessa",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'tessa'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'hH98n#DE40YF';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'tessa'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "theo",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'theo'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'Y9E£29*0RsFc';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'theo'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "julie",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'julie'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'rHNrUhUhg{O1DnH1';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'julie'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "shane",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'shane'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'op6Gvp9SzS1&';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'shane'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "jayce",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'jayce'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '5jfX=90=uW-C';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'jayce'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "won",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'won'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '0scW=JP62Utp';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'won'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "hans.kim",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'hans.kim'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '6l4Z£u:ZG2iH';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'hans.kim'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "karl.seong",
+          "hosts": "10.13.30.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'karl.seong'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '0xDX8U5&047!';\nCREATE USER 'karl.seong'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY '0xDX8U5&047!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'karl.seong'@'10.13.30.%';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'karl.seong'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ted.kim",
+          "hosts": "10.13.30.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'ted.kim'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'ieAAkx1U6b7%';\nCREATE USER 'ted.kim'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY 'ieAAkx1U6b7%';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ted.kim'@'10.13.30.%';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ted.kim'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "roin.noh",
+          "hosts": "10.13.30.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'roin.noh'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'X45V6O:wPE6)';\nCREATE USER 'roin.noh'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY 'X45V6O:wPE6)';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'roin.noh'@'10.13.30.%';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'roin.noh'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        }
+      ]
+    },
+    "onda-plus": {
+      "sheetName": "PROD onda-plus rds",
+      "environment": "PROD",
+      "accounts": [
+        {
+          "user": "service-api",
+          "hosts": "10.10.%\n10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE TEMPORARY TABLES, EVENT, EXECUTE, PROCESS, SHOW DATABASES, TRIGGER ON *.* TO 'service-api'@'10.10.%' IDENTIFIED BY 'xMSNp$r!od#DAi*';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE TEMPORARY TABLES, EVENT, EXECUTE, PROCESS, SHOW DATABASES, TRIGGER ON *.* TO 'service-api'@'10.30.%' IDENTIFIED BY 'xMSNp$r!od#DAi*';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "jt.jung",
+          "hosts": "192.168.15.%\n10.243.0.%",
+          "type": "user",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'jt.jung'@'192.168.15.%' IDENTIFIED BY 'UjlgLF9r822cA!o';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'jt.jung'@'10.243.0.%' IDENTIFIED BY 'UjlgLF9r822cA!o';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "lucas",
+          "hosts": "172.21.16.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, SHOW DATABASES ON *.* TO 'lucas'@'172.21.16.%' IDENTIFIED BY 'T^(YKDQ&ce';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "hunter.jang",
+          "hosts": "192.168.15.%\n10.243.0.%",
+          "type": "user",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'hunter.jang'@'192.168.15.%' IDENTIFIED BY 'TyVUE#S0*)T8mxt';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'hunter.jang'@'10.243.0.%' IDENTIFIED BY 'TyVUE#S0*)T8mxt';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "isaac",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT PROCESS, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER ON *.* TO 'isaac'@'10.243.0.%' IDENTIFIED BY 'dGhN!vs8Z2Ix';\nGRANT PROCESS, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER ON *.* TO 'isaac'@'192.168.15.%' IDENTIFIED BY 'dGhN!vs8Z2Ix';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "service-sms",
+          "hosts": "10.10.%\n10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT ALTER, CREATE, DELETE, DROP, EXECUTE, INDEX, INSERT, SELECT, UPDATE ON sms.* TO 'service-sms'@'10.10.%' IDENTIFIED BY 'dTV(zXz6mHLb2xGU';\nGRANT ALTER, CREATE, DELETE, DROP, EXECUTE, INDEX, INSERT, SELECT, UPDATE ON sms.* TO 'service-sms'@'10.30.%' IDENTIFIED BY 'dTV(zXz6mHLb2xGU';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ann",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, SHOW DATABASES ON *.* TO 'ann'@'10.243.0.%' IDENTIFIED BY '5&$8SR#IRcuI2c';\nGRANT SELECT, SHOW DATABASES ON *.* TO 'ann'@'192.168.15.%' IDENTIFIED BY '5&$8SR#IRcuI2c';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ods-mart",
+          "hosts": "10.10.%\n10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ods-mart'@'10.10.%' IDENTIFIED BY 'Y*qrUMnmqqqQ*s9C';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ods-mart'@'10.30.%' IDENTIFIED BY 'Y*qrUMnmqqqQ*s9C';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "theo",
+          "hosts": "10.243.0.%\n192.168.15.%\n172.21.16.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'theo'@'192.168.15.%' IDENTIFIED BY 'E@V9_f5LZCyfWumX';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'theo'@'10.243.0.%' IDENTIFIED BY 'E@V9_f5LZCyfWumX';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'theo'@'172.21.16.%' IDENTIFIED BY 'E@V9_f5LZCyfWumX';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ryan",
+          "hosts": "10.243.0.%\n192.168.15.%\n172.21.16",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ryan'@'10.243.0.%' IDENTIFIED BY 'c5ce^9PVd8$@&mAU';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ryan'@'192.168.15.%' IDENTIFIED BY 'c5ce^9PVd8$@&mAU';\nGRANT SELECT, SHOW DATABASES ON *.* TO 'ryan'@'172.21.16.%' IDENTIFIED BY 'c5ce^9PVd8$@&mAU';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "elliot.lee",
+          "hosts": "192.168.15.%\n10.243.0.%\n172.21.16.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, SHOW DATABASES, PROCESS ON *.* TO 'elliot.lee'@'192.168.15.%' IDENTIFIED BY 'Xx96Pz855Z&ZJuz7';\nGRANT SELECT, SHOW DATABASES, PROCESS ON *.* TO 'elliot.lee'@'10.243.0.%' IDENTIFIED BY 'Xx96Pz855Z&ZJuz7';\nGRANT SELECT, SHOW DATABASES, PROCESS ON *.* TO 'elliot.lee'@'172.21.16.%' IDENTIFIED BY 'Xx96Pz855Z&ZJuz7';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sean",
+          "hosts": "172.21.16.%",
+          "type": "developer",
+          "hasGrant": true,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'172.21.16.%' IDENTIFIED BY '6adbca3fb386!' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "querypie-read",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, TRIGGER, SHOW DATABASES ON *.* TO 'querypie-read'@'10.13.30.%' IDENTIFIED BY 't!7WR$crlF2i';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "querypie-VDI",
+          "hosts": "10.13.30.%",
+          "type": "vdi",
+          "hasGrant": true,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'querypie-VDI'@'10.13.30.%' IDENTIFIED BY 'wteW2909esyF' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "isaac",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT ALTER, DROP, EXECUTE, INDEX, PROCESS, REFERENCES, SELECT, SHOW DATABASES, UPDATE ON *.* TO 'isaac'@'10.243.0.%' IDENTIFIED BY 'dGhN!vs8Z2Ix';\nGRANT ALTER, DROP, EXECUTE, INDEX, PROCESS, REFERENCES, SELECT, SHOW DATABASES, UPDATE ON *.* TO 'isaac'@'192.168.15.%' IDENTIFIED BY 'dGhN!vs8Z2Ix';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sean",
+          "hosts": "10.13.30.%\n10.243.0.%\n192.168.15.%",
+          "type": "admin",
+          "hasGrant": true,
+          "etc": "CREATE USER 'sean'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'10.243.0.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.13.30.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.243.0.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "eden",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'eden'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'e70e60decd02!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'eden'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ann",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'ann'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '5&$8SR#IRcuI2c';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ann'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "isaac",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'isaac'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'dGhN!vs8Z2Ix';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'isaac'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "jade",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'jade'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '8a884dd95ddf!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'jade'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "theo",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'theo'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'Y9E£29*0RsFc';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'theo'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "won",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'won'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '0scW=JP62Utp';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'won'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sebs",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'sebs'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'e8ec5fba366b!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'sebs'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ted.kim",
+          "hosts": "10.13.30.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'ted.kim'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'ieAAkx1U6b7%';\nCREATE USER 'ted.kim'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY 'ieAAkx1U6b7%';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ted.kim'@'10.13.30.%';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ted.kim'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "roin.noh",
+          "hosts": "10.13.30.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'roin.noh'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'X45V6O:wPE6)';\nCREATE USER 'roin.noh'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY 'X45V6O:wPE6)';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'roin.noh'@'10.13.30.%';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'roin.noh'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        }
+      ]
+    },
+    "EVCMS": {
+      "sheetName": "PROD EVCMS(DocumentDB)",
+      "environment": "PROD",
+      "accounts": [
+        {
+          "user": "evcms",
+          "hosts": "%",
+          "type": "dba",
+          "hasGrant": true,
+          "etc": ""
+        },
+        {
+          "user": "querypie-read",
+          "hosts": "%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "db.createUser({user:\"querypie-read\", pwd:\"t!7WR$crlF2i\", roles:[{role:\"read\", db:\"email-voucher-prod\"}]})"
+        },
+        {
+          "user": "querypie-VDI",
+          "hosts": "%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "db.createUser({user:\"querypie-VDI\", pwd:\"wteW2909esyF\", roles:[{role:\"readWrite\", db:\"email-voucher-prod\"}]})"
+        },
+        {
+          "user": "sean",
+          "hosts": "10.13.30.%\n10.243.0.%\n192.168.15.%",
+          "type": "unknown",
+          "hasGrant": false,
+          "etc": "WRITE"
+        },
+        {
+          "user": "eden",
+          "hosts": "10.13.30.%",
+          "type": "unknown",
+          "hasGrant": false,
+          "etc": "READ"
+        },
+        {
+          "user": "marcos",
+          "hosts": "10.13.30.%",
+          "type": "unknown",
+          "hasGrant": false,
+          "etc": "READ"
+        }
+      ]
+    },
+    "onda-notification": {
+      "sheetName": "PROD onda-notification(MongoDB)",
+      "environment": "PROD",
+      "accounts": [
+        {
+          "user": "onsapi",
+          "hosts": "%",
+          "type": "dba",
+          "hasGrant": true,
+          "etc": ""
+        },
+        {
+          "user": "querypie-read",
+          "hosts": "%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "db.createUser({user:\"querypie-read\", pwd:\"t!7WR$crlF2i\", roles:[{role:\"read\", db:\"production\"}]});"
+        },
+        {
+          "user": "querypie-VDI",
+          "hosts": "%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "db.createUser({user:\"querypie-VDI\", pwd:\"wteW2909esyF\", roles:[{role:\"readWrite\", db:\"production\"}]});"
+        },
+        {
+          "user": "sean",
+          "hosts": "10.13.30.%\n10.243.0.%\n192.168.15.%",
+          "type": "unknown",
+          "hasGrant": false,
+          "etc": "WRITE"
+        },
+        {
+          "user": "eden",
+          "hosts": "10.13.30.%",
+          "type": "unknown",
+          "hasGrant": false,
+          "etc": "WRITE"
+        },
+        {
+          "user": "marcos",
+          "hosts": "10.13.30.%",
+          "type": "unknown",
+          "hasGrant": false,
+          "etc": "READ"
+        },
+        {
+          "user": "shane",
+          "hosts": "10.13.30.%",
+          "type": "unknown",
+          "hasGrant": false,
+          "etc": "READ"
+        }
+      ]
+    },
+    "hub-content": {
+      "sheetName": "PROD hub-content(MongoDB)",
+      "environment": "PROD",
+      "accounts": [
+        {
+          "user": "onsapi",
+          "hosts": "%",
+          "type": "dba",
+          "hasGrant": true,
+          "etc": ""
+        },
+        {
+          "user": "querypie-read",
+          "hosts": "%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "db.createUser({user:\"querypie-read\", pwd:\"t!7WR$crlF2i\", roles:[{role:\"read\", db:\"production\"}]});"
+        },
+        {
+          "user": "querypie-VDI",
+          "hosts": "%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "db.createUser({user:\"querypie-VDI\", pwd:\"wteW2909esyF\", roles:[{role:\"readWrite\", db:\"production\"}]});"
+        },
+        {
+          "user": "sean",
+          "hosts": "10.13.30.%\n10.243.0.%\n192.168.15.%",
+          "type": "unknown",
+          "hasGrant": false,
+          "etc": "WRITE"
+        },
+        {
+          "user": "marcos",
+          "hosts": "10.13.30.%",
+          "type": "unknown",
+          "hasGrant": false,
+          "etc": "READ"
+        },
+        {
+          "user": "tessa",
+          "hosts": "10.13.30.%",
+          "type": "unknown",
+          "hasGrant": false,
+          "etc": "READ"
+        }
+      ]
+    },
+    "Vendor": {
+      "sheetName": "PROD Vendor(Atlas Mongodb)",
+      "environment": "PROD",
+      "accounts": [
+        {
+          "user": "santorini",
+          "hosts": "%",
+          "type": "dba",
+          "hasGrant": true,
+          "etc": ""
+        },
+        {
+          "user": "querypie-read",
+          "hosts": "%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "db.createUser({user:\"querypie-read\", pwd:\"t!7WR$crlF2i\", roles:[{role:\"read\", db:\"email-voucher-prod\"}]})"
+        },
+        {
+          "user": "sean",
+          "hosts": "10.13.30.%\n10.243.0.%\n192.168.15.%",
+          "type": "unknown",
+          "hasGrant": false,
+          "etc": "WRITE"
+        },
+        {
+          "user": "gyu",
+          "hosts": "10.13.30.%",
+          "type": "unknown",
+          "hasGrant": false,
+          "etc": "READ"
+        },
+        {
+          "user": "sebs",
+          "hosts": "10.13.30.%",
+          "type": "unknown",
+          "hasGrant": false,
+          "etc": "READ"
+        }
+      ]
+    },
+    "auth-cluster": {
+      "sheetName": "PROD auth-cluster rds",
+      "environment": "PROD",
+      "accounts": [
+        {
+          "user": "author",
+          "hosts": "%",
+          "type": "service",
+          "hasGrant": true,
+          "etc": "희원 문서와 상이함\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP ON auth.* TO author@'10.10.%' identified by 'a140722!';"
+        },
+        {
+          "user": "teddy.kim",
+          "hosts": "192.168.15.%\n10.243.0.%\n172.21.16.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE ON auth.* TO 'teddy.kim'@'192.168.15.%' IDENTIFIED BY 'kQr7wUh^9LkwxSW';\nGRANT SELECT, INSERT, UPDATE, DELETE ON auth.* TO 'teddy.kim'@'10.243.0.%' IDENTIFIED BY 'kQr7wUh^9LkwxSW';\nGRANT SELECT, INSERT, UPDATE, DELETE ON auth.* TO 'teddy.kim'@'172.21.16.%' IDENTIFIED BY 'kQr7wUh^9LkwxSW';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "lucas",
+          "hosts": "172.21.16.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, SHOW DATABASES ON *.* TO 'lucas'@'172.21.16.%' IDENTIFIED BY 'T^(YKDQ&ce';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "auth-service",
+          "hosts": "10.10.%\n10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, EXECUTE, CREATE ROUTINE, ALTER ROUTINE, TRIGGER ON *.* TO 'auth-service'@'10.10.%' IDENTIFIED BY 'fqsm!nvDZtGs93w&';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, EXECUTE, CREATE ROUTINE, ALTER ROUTINE, TRIGGER ON *.* TO 'auth-service'@'10.30.%' IDENTIFIED BY 'fqsm!nvDZtGs93w&';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "justin",
+          "hosts": "10.243.0.%\n192.168.15.%\n172.21.16.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, SHOW DATABASES, SHOW VIEW, EVENT, TRIGGER ON *.* TO 'justin'@'192.168.15.%' IDENTIFIED BY 'qAN$$6Ys7beH';\nGRANT SELECT, SHOW DATABASES, SHOW VIEW, EVENT, TRIGGER ON *.* TO 'justin'@'10.243.0.%' IDENTIFIED BY 'qAN$$6Ys7beH';\nGRANT SELECT, SHOW DATABASES, SHOW VIEW, EVENT, TRIGGER ON *.* TO 'justin'@'172.21.16.%' IDENTIFIED BY 'qAN$$6Ys7beH';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sean",
+          "hosts": "172.21.16.%",
+          "type": "developer",
+          "hasGrant": true,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'172.21.16.%' IDENTIFIED BY '6adbca3fb386!' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "querypie-read",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'querypie-read'@'10.13.30.%' IDENTIFIED BY 't!7WR$crlF2i';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "querypie-VDI",
+          "hosts": "10.13.30.%",
+          "type": "vdi",
+          "hasGrant": true,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'querypie-VDI'@'10.13.30.%' IDENTIFIED BY 'wteW2909esyF' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sean",
+          "hosts": "10.13.30.%\n10.243.0.%\n192.168.15.%",
+          "type": "admin",
+          "hasGrant": false,
+          "etc": "CREATE USER 'sean'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'10.243.0.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.13.30.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.243.0.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "gyu",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'gyu'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '5ac49159d0bf!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'gyu'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "eden",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'eden'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'e70e60decd02!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'eden'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "isaac",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'isaac'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'dGhN!vs8Z2Ix';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'isaac'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "justin",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'justin'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'qAN$$6Ys7beH';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'justin'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "liam",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'liam'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '4MNa\"k4]V6M*u~Vf';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'liam'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "will",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'will'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'mbr8auDF$K69wME8';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'will'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "jade",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'jade'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '8a884dd95ddf!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'jade'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "liam",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'liam'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '4MNa\"k4]V6M*u~Vf';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'liam'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        }
+      ]
+    },
+    "cms-cde-reservaion-api": {
+      "sheetName": "PROD cms-cde-reservaion-api rds",
+      "environment": "PROD",
+      "accounts": [
+        {
+          "user": "author",
+          "hosts": "%",
+          "type": "service",
+          "hasGrant": true,
+          "etc": "희원 문서와 상이함\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP ON auth.* TO author@'10.10.%' identified by 'a140722!';"
+        },
+        {
+          "user": "lucas",
+          "hosts": "172.21.16.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, SHOW DATABASES ON *.* TO 'lucas'@'172.21.16.%' IDENTIFIED BY 'T^(YKDQ&ce';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "cms_reservation",
+          "hosts": "%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "sean",
+          "hosts": "172.21.16.%",
+          "type": "developer",
+          "hasGrant": true,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'172.21.16.%' IDENTIFIED BY '6adbca3fb386!' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "eric",
+          "hosts": "172.21.16.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'eric'@'172.21.16.%' IDENTIFIED BY 'afe793ba79af!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "querypie-read",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'querypie-read'@'10.13.30.%' IDENTIFIED BY 't!7WR$crlF2i';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "querypie-VDI",
+          "hosts": "10.13.30.%",
+          "type": "vdi",
+          "hasGrant": true,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'querypie-VDI'@'10.13.30.%' IDENTIFIED BY 'wteW2909esyF' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sean",
+          "hosts": "10.13.30.%\n10.243.0.%\n192.168.15.%",
+          "type": "admin",
+          "hasGrant": false,
+          "etc": "CREATE USER 'sean'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'10.243.0.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.13.30.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.243.0.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "liam",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'liam'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '4MNa\"k4]V6M*u~Vf';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'liam'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "jade",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'jade'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '8a884dd95ddf!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'jade'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "will",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'will'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'mbr8auDF$K69wME8';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'will'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        }
+      ]
+    },
+    "onda-sms": {
+      "sheetName": "PROD onda-sms rds",
+      "environment": "PROD",
+      "accounts": [
+        {
+          "user": "fax",
+          "hosts": "%",
+          "type": "service",
+          "hasGrant": true,
+          "etc": "write: onda-sms.cluster-cfreopdapfya.ap-northeast-2.rds.amazonaws.com\nread: onda-sms.cluster-ro-cfreopdapfya.ap-northeast-2.rds.amazonaws.com"
+        },
+        {
+          "user": "sebs",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT ON *.* TO 'sebs'@'10.243.0.%' IDENTIFIED BY 'e8ec5fba366b!';\nGRANT SELECT ON *.* TO 'sebs'@'192.168.15.%' IDENTIFIED BY 'e8ec5fba366b!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "julianne",
+          "hosts": "10.10.%\n192.168.15.%\n10.243.0.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'julianne'@'10.10.%' IDENTIFIED BY 'SN4fU?UwXwU!3Ydh';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'julianne'@'192.168.15.%' IDENTIFIED BY 'SN4fU?UwXwU!3Ydh';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'julianne'@'10.243.0.%' IDENTIFIED BY 'SN4fU?UwXwU!3Ydh';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "robin",
+          "hosts": "192.168.15.%\n10.243.0.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT ON *.* TO 'robin'@'10.243.0.%' IDENTIFIED BY '27ZA9mXf!yeu';\nGRANT SELECT ON *.* TO 'robin'@'192.168.15.%' IDENTIFIED BY '27ZA9mXf!yeu';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "lucas",
+          "hosts": "172.21.16.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, SHOW DATABASES ON *.* TO 'lucas'@'172.21.16.%' IDENTIFIED BY 'T^(YKDQ&ce';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "onda_notification",
+          "hosts": "10.30.%",
+          "type": "service",
+          "hasGrant": true,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON onda_notification.* TO 'onda_notification'@'10.30.%' IDENTIFIED BY '8R$06Jr3IM!i';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "backoffice-api",
+          "hosts": "10.10.%\n10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, SHOW VIEW ON *.* TO 'backoffice-api'@'10.10.%' IDENTIFIED BY 'J2v9JrKw@5Bv';\nGRANT SELECT, INSERT, UPDATE, DELETE, SHOW VIEW ON *.* TO 'backoffice-api'@'10.30.%' IDENTIFIED BY 'J2v9JrKw@5Bv';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "isaac",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT PROCESS, SELECT, SHOW DATABASES, SHOW VIEW ON *.* TO 'isaac'@'10.243.0.%' IDENTIFIED BY 'dGhN!vs8Z2Ix';\nGRANT PROCESS, SELECT, SHOW DATABASES, SHOW VIEW ON *.* TO 'isaac'@'192.168.15.%' IDENTIFIED BY 'dGhN!vs8Z2Ix';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sean",
+          "hosts": "172.21.16.%",
+          "type": "developer",
+          "hasGrant": true,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'172.21.16.%' IDENTIFIED BY '6adbca3fb386!' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "eden",
+          "hosts": "172.21.16.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, SHOW DATABASES ON *.* TO 'eden'@'172.21.16.%' IDENTIFIED BY 'e70e60decd02!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "querypie-read",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, TRIGGER, SHOW DATABASES ON *.* TO 'querypie-read'@'10.13.30.%' IDENTIFIED BY 't!7WR$crlF2i';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "querypie-VDI",
+          "hosts": "10.13.30.%",
+          "type": "vdi",
+          "hasGrant": true,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'querypie-VDI'@'10.13.30.%' IDENTIFIED BY 'wteW2909esyF' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sean",
+          "hosts": "10.13.30.%\n10.243.0.%\n192.168.15.%",
+          "type": "admin",
+          "hasGrant": true,
+          "etc": "CREATE USER 'sean'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'10.243.0.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.13.30.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.243.0.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "eden",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'eden'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'e70e60decd02!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'eden'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "jade",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'jade'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '8a884dd95ddf!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'jade'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "will",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'will'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'mbr8auDF$K69wME8';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'will'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "gyu",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'gyu'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '5ac49159d0bf!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'gyu'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "liam",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'liam'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '4MNa\"k4]V6M*u~Vf';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'liam'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "marcos",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'marcos'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'EVtOPTQnC&}|!sNO';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'marcos'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sebs",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'sebs'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'e8ec5fba366b!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'sebs'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        }
+      ]
+    },
+    "obs-systemCDE,misc,cms": {
+      "sheetName": "PROD obs-systemCDE,misc,cms rds",
+      "environment": "PROD",
+      "accounts": [
+        {
+          "user": "misc_vendor",
+          "hosts": "%",
+          "type": "admin",
+          "hasGrant": true,
+          "etc": ""
+        },
+        {
+          "user": "sean",
+          "hosts": "10.10.%\n192.168.15.%\n10.243.0.%\n172.21.16.%",
+          "type": "developer",
+          "hasGrant": true,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, PROCESS, SHOW DATABASES, CREATE TEMPORARY TABLES, EXECUTE, EVENT, TRIGGER ON *.* TO 'sean'@'10.10.%' IDENTIFIED BY '6adbca3fb386!' WITH GRANT OPTION;\nGRANT SELECT, INSERT, UPDATE, DELETE, PROCESS, SHOW DATABASES, CREATE TEMPORARY TABLES, EXECUTE, EVENT, TRIGGER ON *.* TO 'sean'@'192.168.15.%' IDENTIFIED BY '6adbca3fb386!' WITH GRANT OPTION;\nGRANT SELECT, INSERT, UPDATE, DELETE, PROCESS, SHOW DATABASES, CREATE TEMPORARY TABLES, EXECUTE, EVENT, TRIGGER ON *.* TO 'sean'@'10.243.0.%' IDENTIFIED BY '6adbca3fb386!' WITH GRANT OPTION;\nCREATE USER 'sean'@'172.21.16.%' IDENTIFIED BY '6adbca3fb386!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'172.21.16.%' WITH GRANT OPTION;\nFLUSH PRIVILEGES;\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "jade",
+          "hosts": "10.10.%\n192.168.15.%\n10.243.0.%",
+          "type": "developer",
+          "hasGrant": true,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER, CREATE TABLESPACE, LOAD FROM S3, SELECT INTO S3, INVOKE LAMBDA ON *.* TO 'jade'@'10.10.%' IDENTIFIED BY '8a884dd95ddf!' WITH GRANT OPTION;\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER, LOAD FROM S3, SELECT INTO S3, INVOKE LAMBDA ON *.* TO 'jade'@'192.168.15.%' IDENTIFIED BY '8a884dd95ddf!' WITH GRANT OPTION;\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER, LOAD FROM S3, SELECT INTO S3, INVOKE LAMBDA ON *.* TO 'jade'@'10.243.0.%' IDENTIFIED BY '8a884dd95ddf!' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "brian",
+          "hosts": "10.10.%\n192.168.15.%\n10.243.0.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, PROCESS, SHOW DATABASES, CREATE TEMPORARY TABLES, EXECUTE, EVENT, TRIGGER ON *.* TO 'brian'@'192.168.15.%' IDENTIFIED BY 'a120ea3bd807!';\nGRANT SELECT, INSERT, UPDATE, DELETE, PROCESS, SHOW DATABASES, CREATE TEMPORARY TABLES, EXECUTE, EVENT, TRIGGER ON *.* TO 'brian'@'10.243.0.%' IDENTIFIED BY 'a120ea3bd807!';\nFLUSH PRIVILEGES;\nDROP USER 'brian'@'10.10.%';\nDROP USER 'brian'@'10.243.0.%';\nDROP USER 'brian'@'192.168.15.%';"
+        },
+        {
+          "user": "gyu",
+          "hosts": "10.10.%\n192.168.15.%\n10.243.0.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE TEMPORARY TABLES, EVENT, EXECUTE, PROCESS, SHOW DATABASES, TRIGGER ON *.* TO 'gyu'@'192.168.15.%' IDENTIFIED BY '5ac49159d0bf!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE TEMPORARY TABLES, EVENT, EXECUTE, PROCESS, SHOW DATABASES, TRIGGER ON *.* TO 'gyu'@'10.243.0.%' IDENTIFIED BY '5ac49159d0bf!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "wilson",
+          "hosts": "192.168.15.%\n10.243.0.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE ON misc.* TO 'wilson'@'192.168.15.%' IDENTIFIED BY 'tTmVzD*DS2XYS(0';\nGRANT SELECT, INSERT, UPDATE, DELETE ON misc.* TO 'wilson'@'10.243.0.%' IDENTIFIED BY 'tTmVzD*DS2XYS(0';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "joey",
+          "hosts": "10.10.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "misc_api",
+          "hosts": "10.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "misc_api",
+          "hosts": "10.10.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "wave_api",
+          "hosts": "10.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "loop_api",
+          "hosts": "10.10.%\n10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE ON *.* TO 'loop_api'@'10.10.%' IDENTIFIED BY '5ea480125b4b!';\nGRANT SELECT, INSERT, UPDATE, DELETE ON *.* TO 'loop_api'@'10.30.%' IDENTIFIED BY '5ea480125b4b!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "henry",
+          "hosts": "10.10.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "sebs",
+          "hosts": "10.10.%\n10.243.0.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'sebs'@'10.10.%' IDENTIFIED BY 'e8ec5fba366b!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'sebs'@'10.243.%' IDENTIFIED BY 'e8ec5fba366b!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'sebs'@'192.168.15.%' IDENTIFIED BY 'e8ec5fba366b!';\nFLUSH PRIVILEGES;\n\nHOST: onda-misc-vendor-raw.cluster-cfreopdapfya.ap-northeast-2.rds.amazonaws.com\nUsername: sebs\nPASSWORD: e8ec5fba366b!\nDATABASE: vendor\nPORT: 3306"
+        },
+        {
+          "user": "jt",
+          "hosts": "10.10.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'jt'@'10.10.%' IDENTIFIED BY 'NuQV3td7kXeRTjJk';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'jt'@'192.168.15.%' IDENTIFIED BY 'NuQV3td7kXeRTjJk';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "noah",
+          "hosts": "192.168.15.%\n10.243.0.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE ON *.* TO 'noah'@'192.168.15.%' IDENTIFIED BY 'R(D3QpFVxwlJ4S1';\nGRANT SELECT, INSERT, UPDATE, DELETE ON *.* TO 'noah'@'10.243.0.%' IDENTIFIED BY 'R(D3QpFVxwlJ4S1';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "leo",
+          "hosts": "10.10.%\n192.168.15.%\n10.243.0.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'leo'@'10.10.%' IDENTIFIED BY 'AF)P+^5V28P-McpL';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'leo'@'192.168.15.%' IDENTIFIED BY 'AF)P+^5V28P-McpL';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'leo'@'10.243.0.%' IDENTIFIED BY 'AF)P+^5V28P-McpL';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "theo",
+          "hosts": "10.10.%\n192.168.15.%\n10.243.0.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'theo'@'10.10.%' IDENTIFIED BY 'E@V9_f5LZCyfWumX';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'theo'@'192.168.15.%' IDENTIFIED BY 'E@V9_f5LZCyfWumX';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'theo'@'10.243.0.%' IDENTIFIED BY 'E@V9_f5LZCyfWumX';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "robin",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT ON *.* TO 'robin'@'10.243.%' IDENTIFIED BY '27ZA9mXf!yeu';\nGRANT SELECT ON *.* TO 'robin'@'192.168.15.%' IDENTIFIED BY '27ZA9mXf!yeu';\nFLUSH PRIVILEGES;\n\nHOST: onda-misc-vendor-raw.cluster-ro-cfreopdapfya.ap-northeast-2.rds.amazonaws.com\nUsername: robin\nPASSWORD: 27ZA9mXf!yeu\nDATABASE: vendor\nPORT: 3306"
+        },
+        {
+          "user": "lucas",
+          "hosts": "172.21.16.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'lucas'@'172.21.16.%' IDENTIFIED BY 'T^(YKDQ&ce';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "cms_reservation",
+          "hosts": "%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": ""
+        },
+        {
+          "user": "querypie-read",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'querypie-read'@'10.13.30.%' IDENTIFIED BY 't!7WR$crlF2i';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "querypie-VDI",
+          "hosts": "10.13.30.%",
+          "type": "vdi",
+          "hasGrant": true,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'querypie-VDI'@'10.13.30.%' IDENTIFIED BY 'wteW2909esyF' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sean",
+          "hosts": "10.13.30.%\n10.243.0.%\n192.168.15.%",
+          "type": "admin",
+          "hasGrant": false,
+          "etc": "CREATE USER 'sean'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'10.243.0.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.13.30.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.243.0.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "will",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'will'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'mbr8auDF$K69wME8';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'will'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "eden",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'eden'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'e70e60decd02!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'eden'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "liam",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'liam'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '4MNa\"k4]V6M*u~Vf';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'liam'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "isaac",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'isaac'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'dGhN!vs8Z2Ix';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'isaac'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ted.kim",
+          "hosts": "10.13.30.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'ted.kim'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'ieAAkx1U6b7%';\nCREATE USER 'ted.kim'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY 'ieAAkx1U6b7%';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ted.kim'@'10.13.30.%';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ted.kim'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "roin.noh",
+          "hosts": "10.13.30.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'roin.noh'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'X45V6O:wPE6)';\nCREATE USER 'roin.noh'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY 'X45V6O:wPE6)';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'roin.noh'@'10.13.30.%';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'roin.noh'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        }
+      ]
+    },
+    "backoffice": {
+      "sheetName": "PROD backoffice rds",
+      "environment": "PROD",
+      "accounts": [
+        {
+          "user": "backoffice-api",
+          "hosts": "10.10.%\n10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "CREATE USER 'backoffice-api'@'10.10.%' IDENTIFIED BY 'MObvY0lJ)!D)2Di';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, CREATE TEMPORARY TABLES, EVENT, EXECUTE, TRIGGER, ALTER, DROP, INDEX ON backoffice.* TO 'backoffice-api'@'10.10.%';\nCREATE USER 'backoffice-api'@'10.30.%' IDENTIFIED BY 'MObvY0lJ)!D)2Di';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, CREATE TEMPORARY TABLES, EVENT, EXECUTE, TRIGGER, ALTER, DROP, INDEX ON backoffice.* TO 'backoffice-api'@'10.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ods-mart",
+          "hosts": "10.10.%\n10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "CREATE USER 'ods-mart'@'10.10.%' IDENTIFIED BY 'Y*qrUMnmqqqQ*s9C';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, SHOW DATABASES, INDEX, PROCESS, ALTER, REFERENCES ON *.* TO 'ods-mart'@'10.10.%';\nCREATE USER 'ods-mart'@'10.30.%' IDENTIFIED BY 'Y*qrUMnmqqqQ*s9C';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, SHOW DATABASES, INDEX, PROCESS, ALTER, REFERENCES ON *.* TO 'ods-mart'@'10.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sebs",
+          "hosts": "10.243.0.%\n192.168.15.%\n172.21.16.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'sebs'@'10.243.0.%' IDENTIFIED BY 'e8ec5fba366b!';\nCREATE USER 'sebs'@'192.168.15.%' IDENTIFIED BY 'e8ec5fba366b!';\nCREATE USER 'sebs'@'172.21.16.%' IDENTIFIED BY 'e8ec5fba366b!';\nGRANT SELECT, SHOW DATABASES ON *.* TO 'sebs'@'10.243.0.%';\nGRANT SELECT, SHOW DATABASES ON *.* TO 'sebs'@'192.168.15.%';\nGRANT SELECT, SHOW DATABASES ON *.* TO 'sebs'@'172.21.16.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "edward.ha",
+          "hosts": "172.21.16.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'edward.ha'@'172.21.16.%' IDENTIFIED BY 'cnqRny(7fEBF$5g8';\nGRANT SELECT, SHOW DATABASES ON *.* TO 'edward.ha'@'172.21.16.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sean",
+          "hosts": "172.21.16.%",
+          "type": "developer",
+          "hasGrant": true,
+          "etc": "CREATE USER 'sean'@'172.21.16.%' IDENTIFIED BY '6adbca3fb386!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'172.21.16.%' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "lucas",
+          "hosts": "172.21.16.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'lucas'@'172.21.16.%' IDENTIFIED BY 'T^(YKDQ&ce';\nGRANT SELECT, SHOW DATABASES ON *.* TO 'lucas'@'172.21.16.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "theo",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'theo'@'10.243.0.%' IDENTIFIED BY 'E@V9_f5LZCyfWumX';\nCREATE USER 'theo'@'192.168.15.%' IDENTIFIED BY 'E@V9_f5LZCyfWumX';\nGRANT SELECT, SHOW DATABASES ON *.* TO 'theo'@'10.243.0.%';\nGRANT SELECT, SHOW DATABASES ON *.* TO 'theo'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "querypie-read",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'querypie-read'@'10.13.30.%' IDENTIFIED BY 't!7WR$crlF2i';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'querypie-read'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "marcos",
+          "hosts": "172.21.16.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'marcos'@'172.21.16.%' IDENTIFIED BY 'EVtOPTQnC&}|!sNO';\nGRANT SELECT, INSERT, UPDATE, DELETE, PROCESS, SHOW DATABASES ON *.* TO 'marcos'@'172.21.16.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "eden",
+          "hosts": "172.21.16.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'eden'@'172.21.16.%' IDENTIFIED BY 'e70e60decd02!';\nGRANT SELECT, INSERT, UPDATE, DELETE, PROCESS, SHOW DATABASES ON *.* TO 'eden'@'172.21.16.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "quicksight-dms",
+          "hosts": "10.60.%",
+          "type": "migrator",
+          "hasGrant": false,
+          "etc": "CREATE USER 'quicksight-dms'@'10.60.%' IDENTIFIED BY 'Z8m^Dp4wEL62';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'quicksight-dms'@'10.60.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "querypie-VDI",
+          "hosts": "10.13.30.%",
+          "type": "vdi",
+          "hasGrant": true,
+          "etc": "CREATE USER 'querypie-VDI'@'10.13.30.%' IDENTIFIED BY 'wteW2909esyF';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'querypie-VDI'@'10.13.30.%' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "contract-service",
+          "hosts": "10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "CREATE USER 'contract-service'@'10.30.%' IDENTIFIED BY 'Yt)]dJ$yiX8N8F)';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE TEMPORARY TABLES, EVENT, EXECUTE, TRIGGER, ALTER, DROP, INDEX ON contract.* TO 'contract-service'@'10.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sean",
+          "hosts": "10.13.30.%\n10.243.0.%\n192.168.15.%",
+          "type": "admin",
+          "hasGrant": true,
+          "etc": "CREATE USER 'sean'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'10.243.0.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.13.30.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.243.0.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "eden",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'eden'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'e70e60decd02!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'eden'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "jade",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'jade'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '8a884dd95ddf!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'jade'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ann",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'ann'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '5&$8SR#IRcuI2c';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ann'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "marcos",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'marcos'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'EVtOPTQnC&}|!sNO';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'marcos'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "MJ",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'MJ'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'znR8H3!5n24P';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'MJ'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sebs",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'sebs'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'e8ec5fba366b!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'sebs'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "tessa",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'tessa'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'hH98n#DE40YF';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'tessa'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "theo",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'theo'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'Y9E£29*0RsFc';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'theo'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "will",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'will'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'mbr8auDF$K69wME8';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'will'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "julie",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'julie'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'rHNrUhUhg{O1DnH1';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'julie'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "liam",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'liam'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '4MNa\"k4]V6M*u~Vf';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'liam'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "gyu",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'gyu'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '5ac49159d0bf!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'gyu'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        }
+      ]
+    },
+    "osp-aurora": {
+      "sheetName": "PROD osp-aurora rds (osp, addre",
+      "environment": "PROD",
+      "accounts": [
+        {
+          "user": "jade",
+          "hosts": "192.168.15.%\n10.243.0.%\n10.20.%",
+          "type": "developer",
+          "hasGrant": true,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER, LOAD FROM S3, SELECT INTO S3, INVOKE LAMBDA, INVOKE SAGEMAKER, INVOKE COMPREHEND ON *.* TO 'jade'@'192.168.15.%' IDENTIFIED BY '8a884dd95ddf!' WITH GRANT OPTION;\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER, LOAD FROM S3, SELECT INTO S3, INVOKE LAMBDA, INVOKE SAGEMAKER, INVOKE COMPREHEND ON *.* TO 'jade'@'10.243.0.%' IDENTIFIED BY '8a884dd95ddf!' WITH GRANT OPTION;\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER, LOAD FROM S3, SELECT INTO S3, INVOKE LAMBDA, INVOKE SAGEMAKER, INVOKE COMPREHEND ON *.* TO 'jade'@'10.20.%' IDENTIFIED BY '8a884dd95ddf!' WITH GRANT OPTION;\nGRANT ALL PRIVILEGES ON `%`.* TO 'jade'@'192.168.15.%' IDENTIFIED BY '8a884dd95ddf!' WITH GRANT OPTION;\nGRANT ALL PRIVILEGES ON `%`.* TO 'jade'@'10.243.0.%' IDENTIFIED BY '8a884dd95ddf!' WITH GRANT OPTION;\nGRANT ALL PRIVILEGES ON `%`.* TO 'jade'@'10.20.%' IDENTIFIED BY '8a884dd95ddf!' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "eden",
+          "hosts": "172.21.16.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'eden'@'172.21.16.%' IDENTIFIED BY 'e70e60decd02!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sebs",
+          "hosts": "192.168.15.%\n10.243.0.%\n172.21.16.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT USAGE ON *.* TO 'sebs'@'192.168.15.%' IDENTIFIED BY 'e8ec5fba366b!';\nGRANT USAGE ON *.* TO 'sebs'@'172.21.16.%' IDENTIFIED BY 'e8ec5fba366b!';\nGRANT SELECT ON `osp`.* TO 'sebs'@'192.168.15.%' IDENTIFIED BY 'e8ec5fba366b!';\nGRANT SELECT ON `osp`.* TO 'sebs'@'10.243.0.%' IDENTIFIED BY 'e8ec5fba366b!';\nGRANT SELECT ON `osp`.* TO 'sebs'@'172.21.16.%' IDENTIFIED BY 'e8ec5fba366b!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "gyu",
+          "hosts": "192.168.15.%\n10.243.0.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT USAGE ON *.* TO 'gyu'@'192.168.15.%' IDENTIFIED BY '5ac49159d0bf!';\nGRANT USAGE ON *.* TO 'gyu'@'10.243.0.%' IDENTIFIED BY '5ac49159d0bf!';\nGRANT SELECT ON `osp`.* TO 'gyu'@'192.168.15.%' IDENTIFIED BY '5ac49159d0bf!';\nGRANT SELECT ON `osp`.* TO 'gyu'@'10.243.0.%' IDENTIFIED BY '5ac49159d0bf!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "jt",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT ON osp.* TO 'jt'@'10.243.0.%' IDENTIFIED BY 'NuQV3td7kXeRTjJk';\nFLUSH PRIVILEGES;\n\nGRANT USAGE ON *.* TO 'jt'@'192.168.15.%' IDENTIFIED BY 'NuQV3td7kXeRTjJk';\nGRANT SELECT ON `osp`.* TO 'jt'@'192.168.15.%' IDENTIFIED BY 'NuQV3td7kXeRTjJk';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "peter",
+          "hosts": "10.10.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT ON osp.* TO 'peter'@'10.10.%' IDENTIFIED BY 'KrAHjqsz25vBAevJ';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "julianne",
+          "hosts": "10.10.%\n192.168.15.%\n10.243.0.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT ON osp.* TO 'julianne'@'10.10.%' IDENTIFIED BY 'SN4fU?UwXwU!3Ydh';\nGRANT USAGE ON *.* TO 'julianne'@'192.168.15.%' IDENTIFIED BY 'SN4fU?UwXwU!3Ydh';\nGRANT USAGE ON *.* TO 'julianne'@'10.243.0.%' IDENTIFIED BY 'SN4fU?UwXwU!3Ydh';\nGRANT SELECT ON `osp`.* TO 'julianne'@'192.168.15.%' IDENTIFIED BY 'SN4fU?UwXwU!3Ydh';\nGRANT SELECT ON `osp`.* TO 'julianne'@'10.243.0.%' IDENTIFIED BY 'SN4fU?UwXwU!3Ydh';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "karl",
+          "hosts": "10.10.%\n192.168.15.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT USAGE ON *.* TO 'karl'@'10.10.%';\nGRANT SELECT ON `osp`.* TO 'karl'@'10.10.%';\nGRANT SELECT ON `address`.* TO 'karl'@'10.10.%';\nFLUSH PRIVILEGES;\n\nGRANT USAGE ON *.* TO 'karl'@'192.168.15.%' IDENTIFIED BY 'c31a690b528b!';\nGRANT SELECT ON `osp`.* TO 'karl'@'192.168.15.%' IDENTIFIED BY 'c31a690b528b!';\nGRANT SELECT ON `address`.* TO 'karl'@'192.168.15.%' IDENTIFIED BY 'c31a690b528b!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "address-api",
+          "hosts": "10.10.%\n10.20.%\n10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT ALL PRIVILEGES ON `address`.* TO 'address-api'@'10.10.%' IDENTIFIED BY 'pxhhilloe8vr!';\nGRANT ALL PRIVILEGES ON `address`.* TO 'address-api'@'10.20.%' IDENTIFIED BY 'pxhhilloe8vr!';\nGRANT ALL PRIVILEGES ON `address`.* TO 'address-api'@'10.30.%' IDENTIFIED BY 'pxhhilloe8vr!';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "osp-api",
+          "hosts": "10.10.%\n10.20.%\n10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT USAGE ON *.* TO 'osp-api'@'10.10.%';\nGRANT ALL PRIVILEGES ON `osptest`.* TO 'osp-api'@'10.10.%';\nGRANT ALL PRIVILEGES ON `osp`.* TO 'osp-api'@'10.10.%';\nGRANT USAGE ON *.* TO 'osp-api'@'10.20.%';\nGRANT ALL PRIVILEGES ON `osp`.* TO 'osp-api'@'10.20.%';\nGRANT USAGE ON *.* TO 'osp-api'@'10.30.%'  IDENTIFIED BY 'v6u6vaw9vpla!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON `osp`.* TO 'osp-api'@'10.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "lucas",
+          "hosts": "10.10.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "퇴사"
+        },
+        {
+          "user": "hans",
+          "hosts": "10.10.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "퇴사"
+        },
+        {
+          "user": "operation-tool",
+          "hosts": "10.10.%\n10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT SELECT ON osp.* TO 'operation-tool'@'10.10.%' IDENTIFIED BY 'hTnAjU[H[G^6!gi';\nGRANT SELECT ON osp.* TO 'operation-tool'@'10.30.%' IDENTIFIED BY 'hTnAjU[H[G^6!gi';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "theo",
+          "hosts": "192.168.15.%\n10.243.0.%\n172.21.16.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT USAGE ON *.* TO 'theo'@'192.168.15.%' IDENTIFIED BY 'E@V9_f5LZCyfWumX';\nGRANT USAGE ON *.* TO 'theo'@'10.243.0.%' IDENTIFIED BY 'E@V9_f5LZCyfWumX';\nGRANT USAGE ON *.* TO 'theo'@'172.21.16.%' IDENTIFIED BY 'E@V9_f5LZCyfWumX';\nGRANT SELECT ON `osp`.* TO 'theo'@'192.168.15.%' IDENTIFIED BY 'E@V9_f5LZCyfWumX';\nGRANT SELECT ON `osp`.* TO 'theo'@'10.243.0.%' IDENTIFIED BY 'E@V9_f5LZCyfWumX';\nGRANT SELECT ON `osp`.* TO 'theo'@'172.21.16.%' IDENTIFIED BY 'E@V9_f5LZCyfWumX';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "robin",
+          "hosts": "192.168.15.%\n10.243.0.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT ON `osp`.* TO 'robin'@'192.168.15.%' IDENTIFIED BY '27ZA9mXf!yeu';\nGRANT SELECT ON `osp`.* TO 'robin'@'10.243.0.%' IDENTIFIED BY '27ZA9mXf!yeu';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "teddy",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT USAGE ON *.* TO 'teddy'@'192.168.15.%' IDENTIFIED BY 'GIKTdIjmo>vHfU7P';\nGRANT USAGE ON *.* TO 'teddy'@'10.243.0.%' IDENTIFIED BY 'GIKTdIjmo>vHfU7P';\nGRANT SELECT, SHOW DATABASES ON osp.* TO 'teddy'@'192.168.15.%' IDENTIFIED BY 'GIKTdIjmo>vHfU7P';\nGRANT SELECT, SHOW DATABASES ON osp.* TO 'teddy'@'10.243.0.%' IDENTIFIED BY 'GIKTdIjmo>vHfU7P';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "lucas",
+          "hosts": "172.21.16.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'lucas'@'172.21.16.%' IDENTIFIED BY 'T^(YKDQ&ce';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "edward.ha",
+          "hosts": "10.243.0.%\n192.168.15.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'edward.ha'@'192.168.15.%' IDENTIFIED BY 'cnqRny(7fEBF$5g8';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'edward.ha'@'10.243.0.%' IDENTIFIED BY 'cnqRny(7fEBF$5g8';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "backoffice-api",
+          "hosts": "10.10.%\n10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, SHOW VIEW ON osp.* TO 'backoffice-api'@'10.10.%' IDENTIFIED BY 'J2v9JrKw@5Bv';\nGRANT SELECT, SHOW VIEW ON osp.* TO 'backoffice-api'@'10.30.%' IDENTIFIED BY 'J2v9JrKw@5Bv';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "marcos",
+          "hosts": "192.168.15.%\n10.243.0.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, SHOW VIEW ON osp.* TO 'marcos'@'192.168.15.%' IDENTIFIED BY 'QjGW9hz7jO3(EeE';\nGRANT SELECT, SHOW VIEW ON osp.* TO 'marcos'@'10.243.0.%' IDENTIFIED BY 'QjGW9hz7jO3(EeE';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sean",
+          "hosts": "172.21.16.%",
+          "type": "developer",
+          "hasGrant": true,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'172.21.16.%' IDENTIFIED BY '6adbca3fb386!' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "querypie-read",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'querypie-read'@'10.13.30.%' IDENTIFIED BY 't!7WR$crlF2i';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ods-mart",
+          "hosts": "10.10.%\n10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ods-mart'@'10.10.%' IDENTIFIED BY 'Y*qrUMnmqqqQ*s9C';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ods-mart'@'10.30.%' IDENTIFIED BY 'Y*qrUMnmqqqQ*s9C';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "querypie-VDI",
+          "hosts": "10.13.30.%",
+          "type": "vdi",
+          "hasGrant": true,
+          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'querypie-VDI'@'10.13.30.%' IDENTIFIED BY 'wteW2909esyF' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "n8n",
+          "hosts": "10.30.%",
+          "type": "service",
+          "hasGrant": false,
+          "etc": "CREATE USER 'n8n'@'10.30.%' IDENTIFIED WITH caching_sha2_password BY '8ATNF0qnBk!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'n8n'@'10.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sean",
+          "hosts": "10.13.30.%\n10.243.0.%\n192.168.15.%",
+          "type": "admin",
+          "hasGrant": true,
+          "etc": "CREATE USER 'sean'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'10.243.0.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.13.30.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.243.0.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "justin",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'justin'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'qAN$$6Ys7beH';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'justin'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "will",
+          "hosts": "10.13.30.%",
+          "type": "developer write",
+          "hasGrant": false,
+          "etc": "CREATE USER 'will'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'mbr8auDF$K69wME8';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'will'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "amy",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'amy'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'kH977!6XEEu=';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'amy'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "ann",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'ann'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '5&$8SR#IRcuI2c';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ann'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "dustin",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'dustin'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'K4ni&a1jG1X[';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'dustin'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "gyu",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'gyu'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '5ac49159d0bf!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'gyu'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "eden",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'eden'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'e70e60decd02!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'eden'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "jade",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'jade'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '8a884dd95ddf!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'jade'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "robin",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'robin'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '27ZA9mXf!yeu';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'robin'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "sebs",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'sebs'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'e8ec5fba366b!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'sebs'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "shane",
+          "hosts": "10.13.30.%",
+          "type": "developer",
+          "hasGrant": false,
+          "etc": "CREATE USER 'shane'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'op6Gvp9SzS1&';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'shane'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "tessa",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'tessa'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'hH98n#DE40YF';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'tessa'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "theo",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'theo'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'Y9E£29*0RsFc';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'theo'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "julie",
+          "hosts": "10.13.30.%",
+          "type": "monitor",
+          "hasGrant": false,
+          "etc": "CREATE USER 'julie'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'rHNrUhUhg{O1DnH1';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'julie'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        }
+      ]
+    }
+  }
+}
