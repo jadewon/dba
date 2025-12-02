@@ -14,9 +14,10 @@ const path = require('path');
 
 const ROOT_DIR = path.resolve(__dirname, '../..');
 const CHANGES_DIR = path.join(ROOT_DIR, 'changes');
+const REPORTS_DIR = path.join(ROOT_DIR, 'reports');
 const OUTPUT_FILE = path.join(ROOT_DIR, 'diff_result.json');
 
-// 전체 DB 목록 (14개)
+// 전체 DB 목록 (15개)
 const ALL_DATABASES = [
   'DB (onda-aurora-cluster)',
   'DB (onda-standard-property)',
@@ -28,10 +29,11 @@ const ALL_DATABASES = [
   'DB (booking-prd)',
   'DB (obs-system)',
   'DB (cms-cde-reservaion-api)',
-  'DB (onda-voucher)',
+  'DB (onda-misc-vendor-raw)',
   'DocumentDB (EVCMS)',
   'Atlas (onda-notification)',
-  'Atlas (vendor)'
+  'Atlas (vendor)',
+  'Atlas (content)'
 ];
 
 function getTargetMonth() {
@@ -46,6 +48,24 @@ function getTargetMonth() {
   const year = now.getFullYear();
   const month = String(now.getMonth() + 1).padStart(2, '0');
   return `${year}-${month}`;
+}
+
+function loadAuditReport(targetMonth) {
+  const reportPath = path.join(REPORTS_DIR, targetMonth, 'audit_report.json');
+
+  if (!fs.existsSync(reportPath)) {
+    console.log(`적절성 검토 리포트 없음: ${reportPath}`);
+    return null;
+  }
+
+  try {
+    const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+    console.log(`적절성 검토 리포트 로드됨: ${reportPath}`);
+    return report;
+  } catch (err) {
+    console.error(`적절성 검토 리포트 파싱 실패: ${err.message}`);
+    return null;
+  }
 }
 
 function loadChangeFiles(targetMonth) {
@@ -106,8 +126,6 @@ function formatActionDescription(action) {
       return `${action.account} 계정 생성${action.note ? ` (${action.note})` : ''}`;
     case 'auditWarning':
       return `[적절성 검토 경고] ${action.account}: ${action.issues?.join(', ') || action.note}`;
-    case 'auditCheck':
-      return `[적절성 검토] ${action.note || '검토 완료'}`;
     case 'other':
       return action.account ? `${action.account}: ${action.note || '기타 작업'}` : (action.note || '기타 작업');
     default:
@@ -115,68 +133,69 @@ function formatActionDescription(action) {
   }
 }
 
-function buildPayload(targetMonth, dbChanges) {
-  const changedDbs = Array.from(dbChanges.keys());
-  const unchangedDbs = ALL_DATABASES.filter(db => !changedDbs.includes(db));
+function buildPayload(targetMonth, dbChanges, auditReport) {
+  // API 형식에 맞게 systems 배열 생성
+  const systems = [];
 
-  // summary.changes 생성
-  const summaryChanges = [];
-  for (const [dbName, actions] of dbChanges) {
-    for (const action of actions) {
-      summaryChanges.push({
-        database: dbName,
-        date: action.date,
-        description: formatActionDescription(action)
+  for (const dbName of ALL_DATABASES) {
+    const actions = dbChanges.get(dbName) || [];
+
+    if (actions.length > 0) {
+      // 변경사항이 있는 DB
+      systems.push({
+        name: dbName,
+        actions: actions.map(a => {
+          const action = { type: a.type };
+          if (a.account) action.account = a.account;
+          if (a.from) action.from = a.from;
+          if (a.to) action.to = a.to;
+          if (a.note) action.note = a.note;
+          return action;
+        })
+      });
+    } else {
+      // 변경사항 없는 DB
+      systems.push({
+        name: dbName,
+        actions: [{ type: 'other', note: '변경사항 없음' }]
       });
     }
   }
 
-  // details 생성
-  const details = [];
-  for (const dbName of ALL_DATABASES) {
-    const actions = dbChanges.get(dbName) || [];
-    const hasChanges = actions.length > 0;
+  // audit 이슈를 별도 시스템으로 추가
+  if (auditReport && auditReport.conclusion?.hasIssues) {
+    const auditActions = [];
 
-    details.push({
-      database: dbName,
-      status: hasChanges ? 'changed' : 'no_change',
-      actions: hasChanges
-        ? actions.map(a => ({
-            date: a.date,
-            type: a.type,
-            description: formatActionDescription(a)
-          }))
-        : [{ type: 'other', note: '변경사항 없음' }]
-    });
-  }
+    // 최소 권한 이슈
+    const minPrivIssues = auditReport.checks?.minimumPrivilege?.issues || [];
+    if (minPrivIssues.length > 0) {
+      auditActions.push({
+        type: 'auditWarning',
+        note: `최소 권한 원칙 위반 ${minPrivIssues.length}건 (비DBA가 GRANT 권한 보유)`
+      });
+    }
 
-  // 전체 변경사항이 없을 경우 summary.changes에도 명시
-  if (summaryChanges.length === 0) {
-    summaryChanges.push({
-      type: 'other',
-      note: '변경사항 없음'
-    });
-  }
+    // 역할 분류 이슈
+    const roleIssues = auditReport.checks?.roleBasedAccess?.issues || [];
+    if (roleIssues.length > 0) {
+      auditActions.push({
+        type: 'auditWarning',
+        note: `역할 미분류 계정 ${roleIssues.length}건`
+      });
+    }
 
-  // conclusion 생성
-  let conclusion = `${targetMonth} 월 DB 계정 적절성 검토 완료.`;
-  if (summaryChanges.length > 0) {
-    conclusion += ` 총 ${changedDbs.length}개 DB에서 ${summaryChanges.length}건의 변경사항 발생.`;
-  } else {
-    conclusion += ' 변경사항 없음.';
+    if (auditActions.length > 0) {
+      systems.push({
+        name: '[적절성 검토]',
+        actions: auditActions
+      });
+    }
   }
 
   return {
+    systems,
     period: targetMonth,
-    summary: {
-      total_databases: ALL_DATABASES.length,
-      checked_databases: ALL_DATABASES.length,
-      changed_databases: changedDbs.length,
-      total_changes: summaryChanges.length,
-      changes: summaryChanges
-    },
-    details,
-    conclusion
+    mode: 'TEMP'
   };
 }
 
@@ -184,13 +203,16 @@ function main() {
   const targetMonth = getTargetMonth();
   console.log(`=== ${targetMonth} 월 변경사항 집계 ===\n`);
 
+  // 적절성 검토 리포트 로드
+  const auditReport = loadAuditReport(targetMonth);
+
   const files = loadChangeFiles(targetMonth);
 
   if (files.length === 0) {
     console.log(`\n${targetMonth} 월 변경 파일이 없습니다.`);
 
     // 변경사항 없음으로 payload 생성
-    const payload = buildPayload(targetMonth, new Map());
+    const payload = buildPayload(targetMonth, new Map(), auditReport);
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify(payload, null, 2));
     console.log(`\n결과 파일 생성: ${OUTPUT_FILE}`);
     return;
@@ -199,16 +221,24 @@ function main() {
   console.log(`\n총 ${files.length}개 파일 로드됨\n`);
 
   const dbChanges = aggregateChanges(files);
-  const payload = buildPayload(targetMonth, dbChanges);
+  const payload = buildPayload(targetMonth, dbChanges, auditReport);
 
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(payload, null, 2));
   console.log(`결과 파일 생성: ${OUTPUT_FILE}`);
 
+  // 요약 출력
+  const changedSystems = payload.systems.filter(s =>
+    s.actions.some(a => a.type !== 'other' || a.note !== '변경사항 없음')
+  );
+  const totalActions = payload.systems.reduce((sum, s) =>
+    sum + s.actions.filter(a => a.type !== 'other' || a.note !== '변경사항 없음').length, 0
+  );
+
   console.log('\n=== 요약 ===');
   console.log(`대상 기간: ${targetMonth}`);
-  console.log(`전체 DB: ${payload.summary.total_databases}개`);
-  console.log(`변경된 DB: ${payload.summary.changed_databases}개`);
-  console.log(`총 변경사항: ${payload.summary.total_changes}건`);
+  console.log(`전체 시스템: ${payload.systems.length}개`);
+  console.log(`변경된 시스템: ${changedSystems.length}개`);
+  console.log(`총 액션: ${totalActions}건`);
 }
 
 main();

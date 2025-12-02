@@ -23,6 +23,9 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Install dependencies
+        run: npm ci
+
       - name: Determine target month
         id: month
         run: |
@@ -47,18 +50,21 @@ jobs:
           COUNT=$(ls changes/${TARGET}-*.json 2>/dev/null | wc -l || echo "0")
           echo "발견된 변경 파일: ${COUNT}개"
 
+      - name: Run audit check
+        run: |
+          node scripts/local/audit_check.js "${{ steps.month.outputs.target_month }}"
+
       - name: Aggregate changes
         run: |
           node scripts/actions/aggregate_and_call.js "${{ steps.month.outputs.target_month }}"
 
       - name: Call API
         if: success()
-        env:
-          AUDIT_API_URL: ${{ secrets.AUDIT_API_URL }}
-          AUDIT_API_KEY: ${{ secrets.AUDIT_API_KEY }}
         run: |
-          chmod +x scripts/actions/call_api.sh
-          ./scripts/actions/call_api.sh
+          curl -X POST "https://hiworks-production.up.railway.app/hiworks/system-account-review" \
+            -H "Content-Type: application/json" \
+            -H "x-api-key: 02f671d9d66c4a81f101fbb7740a3555a79c233b3e38b5edca9eb416d9070299" \
+            -d @diff_result.json
 
       - name: Upload result
         uses: actions/upload-artifact@v4

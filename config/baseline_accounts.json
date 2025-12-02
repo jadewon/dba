@@ -2,7 +2,11 @@
   "metadata": {
     "source": "DB grants.xlsx",
     "generatedAt": "2025-11-28T08:45:48.642Z",
-    "version": "1.0"
+    "version": "1.0",
+    "lastUpdated": "2025-11-28T09:56:41.486Z",
+    "appliedChanges": [
+      "2025-11-27.json"
+    ]
   },
   "databases": {
     "onda-dev": {
@@ -673,9 +677,9 @@
         {
           "user": "sean",
           "hosts": "10.13.30.%\n10.243.0.%\n192.168.15.%",
-          "type": "admin",
-          "hasGrant": true,
-          "etc": "CREATE USER 'sean'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'10.243.0.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.13.30.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.243.0.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'192.168.15.%';\nFLUSH PRIVILEGES;"
+          "type": "read",
+          "hasGrant": false,
+          "etc": "2025-11-27 권한변경: ALL + GRANT OPTION → SELECT, PROCESS, SHOW DATABASES"
         },
         {
           "user": "justin",
@@ -690,6 +694,13 @@
           "type": "developer write",
           "hasGrant": false,
           "etc": "CREATE USER 'will'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'mbr8auDF$K69wME8';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'will'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+        },
+        {
+          "user": "jade",
+          "hosts": "%",
+          "type": "unknown",
+          "hasGrant": false,
+          "etc": "DBA 계정 신규 생성"
         }
       ]
     },
@@ -763,16 +774,9 @@
         {
           "user": "sean",
           "hosts": "10.13.30.%\n10.243.0.%\n192.168.15.%",
-          "type": "admin",
+          "type": "read",
           "hasGrant": false,
-          "etc": "CREATE USER 'sean'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'10.243.0.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nCREATE USER 'sean'@'192.168.15.%' IDENTIFIED WITH caching_sha2_password BY '6adbca3fb386!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.13.30.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.243.0.%';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'192.168.15.%';\nFLUSH PRIVILEGES;"
-        },
-        {
-          "user": "ian",
-          "hosts": "10.13.30.%",
-          "type": "developer write",
-          "hasGrant": false,
-          "etc": "CREATE USER 'ian'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY 'CSkhDySeGe!Pgx6k';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'ian'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+          "etc": "2025-11-27 권한변경: ALL + GRANT OPTION → SELECT, PROCESS, SHOW DATABASES"
         },
         {
           "user": "justin",
@@ -916,9 +920,9 @@
         {
           "user": "sean",
           "hosts": "192.168.15.%\n10.243.0.%\n172.21.16.%",
-          "type": "developer",
-          "hasGrant": true,
-          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'10.243.%' IDENTIFIED BY '6adbca3fb386!' WITH GRANT OPTION;\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'172.21.16.%' IDENTIFIED BY '6adbca3fb386!' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+          "type": "read",
+          "hasGrant": false,
+          "etc": "2025-11-27 권한변경: ALL + GRANT OPTION → SELECT, PROCESS, SHOW DATABASES"
         },
         {
           "user": "jade",
@@ -1213,13 +1217,6 @@
           "type": "service",
           "hasGrant": false,
           "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, LOCK TABLES, EXECUTE, SHOW VIEW, EVENT, TRIGGER, USAGE ON ari.* TO 'ari_service2'@'10.20.%' IDENTIFIED BY 'IO-(++=716AExoekmyLu)C)Or';\nGRANT SELECT, INSERT, UPDATE, DELETE, LOCK TABLES, EXECUTE, SHOW VIEW, EVENT, TRIGGER, USAGE ON ari.* TO 'ari_service2'@'10.30.%' IDENTIFIED BY 'IO-(++=716AExoekmyLu)C)Or';\nFLUSH PRIVILEGES;"
-        },
-        {
-          "user": "ian",
-          "hosts": "10.243.0.%\n192.168.15.%",
-          "type": "developer",
-          "hasGrant": false,
-          "etc": "GRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ian'@'192.168.15.%' IDENTIFIED BY 'CSkhDySeGe!Pgx6k';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'ian'@'10.243.0.%' IDENTIFIED BY 'CSkhDySeGe!Pgx6k';\nFLUSH PRIVILEGES;"
         },
         {
           "user": "edward.ha",
@@ -1615,9 +1612,9 @@
         {
           "user": "sean",
           "hosts": "172.21.16.%",
-          "type": "developer",
-          "hasGrant": true,
-          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'172.21.16.%' IDENTIFIED BY '6adbca3fb386!' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+          "type": "read",
+          "hasGrant": false,
+          "etc": "2025-11-27 권한변경: ALL + GRANT OPTION → SELECT, PROCESS, SHOW DATABASES"
         },
         {
           "user": "querypie-read",
@@ -1946,9 +1943,9 @@
         {
           "user": "sean",
           "hosts": "172.21.16.%",
-          "type": "developer",
-          "hasGrant": true,
-          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'172.21.16.%' IDENTIFIED BY '6adbca3fb386!' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+          "type": "read",
+          "hasGrant": false,
+          "etc": "2025-11-27 권한변경: ALL + GRANT OPTION → SELECT, PROCESS, SHOW DATABASES"
         },
         {
           "user": "querypie-read",
@@ -2057,9 +2054,9 @@
         {
           "user": "sean",
           "hosts": "172.21.16.%",
-          "type": "developer",
-          "hasGrant": true,
-          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'172.21.16.%' IDENTIFIED BY '6adbca3fb386!' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+          "type": "read",
+          "hasGrant": false,
+          "etc": "2025-11-27 권한변경: ALL + GRANT OPTION → SELECT, PROCESS, SHOW DATABASES"
         },
         {
           "user": "eric",
@@ -2101,7 +2098,7 @@
           "hosts": "10.13.30.%",
           "type": "developer",
           "hasGrant": false,
-          "etc": "CREATE USER 'jade'@'10.13.30.%' IDENTIFIED WITH caching_sha2_password BY '8a884dd95ddf!';\nGRANT SELECT, PROCESS, SHOW DATABASES ON *.* TO 'jade'@'10.13.30.%';\nFLUSH PRIVILEGES;"
+          "etc": "2025-11-27 비밀번호 재설정"
         },
         {
           "user": "will",
@@ -2175,9 +2172,9 @@
         {
           "user": "sean",
           "hosts": "172.21.16.%",
-          "type": "developer",
-          "hasGrant": true,
-          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'172.21.16.%' IDENTIFIED BY '6adbca3fb386!' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+          "type": "read",
+          "hasGrant": false,
+          "etc": "2025-11-27 권한변경: ALL + GRANT OPTION → SELECT, PROCESS, SHOW DATABASES"
         },
         {
           "user": "eden",
@@ -2272,9 +2269,9 @@
         {
           "user": "sean",
           "hosts": "10.10.%\n192.168.15.%\n10.243.0.%\n172.21.16.%",
-          "type": "developer",
-          "hasGrant": true,
-          "etc": "GRANT SELECT, INSERT, UPDATE, DELETE, PROCESS, SHOW DATABASES, CREATE TEMPORARY TABLES, EXECUTE, EVENT, TRIGGER ON *.* TO 'sean'@'10.10.%' IDENTIFIED BY '6adbca3fb386!' WITH GRANT OPTION;\nGRANT SELECT, INSERT, UPDATE, DELETE, PROCESS, SHOW DATABASES, CREATE TEMPORARY TABLES, EXECUTE, EVENT, TRIGGER ON *.* TO 'sean'@'192.168.15.%' IDENTIFIED BY '6adbca3fb386!' WITH GRANT OPTION;\nGRANT SELECT, INSERT, UPDATE, DELETE, PROCESS, SHOW DATABASES, CREATE TEMPORARY TABLES, EXECUTE, EVENT, TRIGGER ON *.* TO 'sean'@'10.243.0.%' IDENTIFIED BY '6adbca3fb386!' WITH GRANT OPTION;\nCREATE USER 'sean'@'172.21.16.%' IDENTIFIED BY '6adbca3fb386!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'172.21.16.%' WITH GRANT OPTION;\nFLUSH PRIVILEGES;\nFLUSH PRIVILEGES;"
+          "type": "read",
+          "hasGrant": false,
+          "etc": "2025-11-27 권한변경: ALL + GRANT OPTION → SELECT, PROCESS, SHOW DATABASES"
         },
         {
           "user": "jade",
@@ -2502,9 +2499,9 @@
         {
           "user": "sean",
           "hosts": "172.21.16.%",
-          "type": "developer",
-          "hasGrant": true,
-          "etc": "CREATE USER 'sean'@'172.21.16.%' IDENTIFIED BY '6adbca3fb386!';\nGRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'sean'@'172.21.16.%' WITH GRANT OPTION;\nFLUSH PRIVILEGES;"
+          "type": "read",
+          "hasGrant": false,
+          "etc": "2025-11-27 권한변경: ALL + GRANT OPTION → SELECT, PROCESS, SHOW DATABASES"
         },
         {
           "user": "lucas",

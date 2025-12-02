@@ -6,7 +6,7 @@
 
 ---
 
-## 대상 DB 목록 (총 13개)
+## 대상 DB 목록 (총 15개)
 
 ### AWS Aurora MySQL (11개)
 
@@ -30,12 +30,13 @@
 |---|---|---|
 | EVCMS | evcms-documentdb-production.cluster-cfreopdapfya.ap-northeast-2.docdb.amazonaws.com | 27018 |
 
-### MongoDB Atlas (2개)
+### MongoDB Atlas (3개)
 
 | DB | 비고 |
 |---|---|
 | onda-notification | |
 | vendor | |
+| content | |
 
 ---
 

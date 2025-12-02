@@ -1,0 +1,13 @@
+[
+  {
+    "name": "DB (onda-plus-cluster)",
+    "actions": [
+      {
+        "type": "permissionChange",
+        "account": "ted.kim",
+        "from": "SELECT, PROCESS, SHOW DATABASES",
+        "to": "ALL + GRANT OPTION"
+      }
+    ]
+  }
+]
