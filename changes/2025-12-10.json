@@ -1,0 +1,74 @@
+[
+  {
+    "name": "DB (onda-aurora-cluster)",
+    "loginPath": "hub.write",
+    "actions": [
+      { "type": "deleteAccount", "account": "sean", "hosts": ["10.13.30.%", "10.243.0.%", "192.168.15.%"], "note": "퇴사자 계정 삭제" },
+      { "type": "createAccount", "account": "derek.lee", "hosts": ["10.13.30.%", "192.168.15.%"], "grants": "SELECT, PROCESS, SHOW DATABASES ON *.*", "note": "개발자 계정 생성 (karl.seong과 동일 권한)" }
+    ]
+  },
+  {
+    "name": "DB (onda-plus-cluster)",
+    "loginPath": "db.pplus.write",
+    "actions": [
+      { "type": "deleteAccount", "account": "sean", "hosts": ["10.13.30.%", "10.243.0.%", "192.168.15.%"], "note": "퇴사자 계정 삭제" }
+    ]
+  },
+  {
+    "name": "DB (onda-standard-property)",
+    "loginPath": "db.osp",
+    "actions": [
+      { "type": "deleteAccount", "account": "sean", "hosts": ["10.13.30.%", "10.243.0.%", "192.168.15.%"], "note": "퇴사자 계정 삭제" }
+    ]
+  },
+  {
+    "name": "DB (onda-sms)",
+    "loginPath": "db.sms",
+    "actions": [
+      { "type": "deleteAccount", "account": "sean", "hosts": ["10.13.30.%", "10.243.0.%", "192.168.15.%"], "note": "퇴사자 계정 삭제" }
+    ]
+  },
+  {
+    "name": "DB (onda-backoffice)",
+    "loginPath": "db.bo.write",
+    "actions": [
+      { "type": "deleteAccount", "account": "sean", "hosts": ["10.13.30.%", "10.243.0.%", "192.168.15.%"], "note": "퇴사자 계정 삭제" }
+    ]
+  },
+  {
+    "name": "DB (obs-system)",
+    "loginPath": "db.obs",
+    "actions": [
+      { "type": "deleteAccount", "account": "sean", "hosts": ["10.13.30.%", "10.243.0.%", "192.168.15.%"], "note": "퇴사자 계정 삭제" }
+    ]
+  },
+  {
+    "name": "DB (cms-cde-reservaion-api)",
+    "loginPath": "db.cms",
+    "actions": [
+      { "type": "deleteAccount", "account": "sean", "hosts": ["10.13.30.%", "10.243.0.%", "192.168.15.%"], "note": "퇴사자 계정 삭제" }
+    ]
+  },
+  {
+    "name": "DB (auth-cluster)",
+    "loginPath": "db.auth",
+    "actions": [
+      { "type": "deleteAccount", "account": "sean", "hosts": ["10.13.30.%", "10.243.0.%", "192.168.15.%"], "note": "퇴사자 계정 삭제" }
+    ]
+  },
+  {
+    "name": "DB (b2e-rds-prd-cluster)",
+    "loginPath": "db.voucher",
+    "actions": [
+      { "type": "deleteAccount", "account": "sean", "hosts": ["10.13.30.%", "10.243.0.%", "192.168.15.%"], "note": "퇴사자 계정 삭제" },
+      { "type": "grantPermission", "account": "b2e-real", "grants": ["DELETE ON b2e_rds_1.member", "DELETE ON b2e_rds_1.event", "DELETE ON b2e_rds_1.coupon"], "note": "서비스 계정 DELETE 권한 추가" }
+    ]
+  },
+  {
+    "name": "DB (booking-prd)",
+    "loginPath": "db.bookingon",
+    "actions": [
+      { "type": "deleteAccount", "account": "sean", "hosts": ["10.13.30.%", "10.243.0.%", "192.168.15.%"], "note": "퇴사자 계정 삭제" }
+    ]
+  }
+]
