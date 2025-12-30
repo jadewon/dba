@@ -1,0 +1,37 @@
+[
+  {
+    "name": "DB (onda-aurora-cluster)",
+    "loginPath": "hub.write",
+    "actions": [
+      { "type": "createAccount", "account": "lex.ahn", "hosts": ["10.13.30.%", "192.168.15.%"], "grants": "SELECT, PROCESS, SHOW DATABASES ON *.*", "note": "개발자 계정 생성" }
+    ]
+  },
+  {
+    "name": "DB (onda-standard-property)",
+    "loginPath": "db.osp",
+    "actions": [
+      { "type": "createAccount", "account": "lex.ahn", "hosts": ["10.13.30.%", "192.168.15.%"], "grants": "SELECT, PROCESS, SHOW DATABASES ON *.*", "note": "개발자 계정 생성" }
+    ]
+  },
+  {
+    "name": "DB (onda-plus-cluster)",
+    "loginPath": "db.pplus.write",
+    "actions": [
+      { "type": "createAccount", "account": "lex.ahn", "hosts": ["10.13.30.%", "192.168.15.%"], "grants": "SELECT, PROCESS, SHOW DATABASES ON *.*", "note": "개발자 계정 생성" }
+    ]
+  },
+  {
+    "name": "DB (onda-backoffice)",
+    "loginPath": "db.bo.write",
+    "actions": [
+      { "type": "createAccount", "account": "lex.ahn", "hosts": ["10.13.30.%", "192.168.15.%"], "grants": "SELECT, PROCESS, SHOW DATABASES ON *.*", "note": "개발자 계정 생성" }
+    ]
+  },
+  {
+    "name": "DB (b2e-rds-prd-cluster)",
+    "loginPath": "db.voucher",
+    "actions": [
+      { "type": "createAccount", "account": "lex.ahn", "hosts": ["10.13.30.%", "192.168.15.%"], "grants": "SELECT, PROCESS, SHOW DATABASES ON *.*", "note": "개발자 계정 생성" }
+    ]
+  }
+]
