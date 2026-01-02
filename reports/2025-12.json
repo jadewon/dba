@@ -1,0 +1,192 @@
+{
+  "systems": [
+    {
+      "name": "DB (onda-aurora-cluster)",
+      "actions": [
+        {
+          "type": "deleteAccount",
+          "account": "sean",
+          "note": "퇴사자 계정 삭제"
+        },
+        {
+          "type": "createAccount",
+          "account": "derek.lee",
+          "note": "개발자 계정 생성 (karl.seong과 동일 권한)"
+        },
+        {
+          "type": "createAccount",
+          "account": "lex.ahn",
+          "note": "개발자 계정 생성"
+        }
+      ]
+    },
+    {
+      "name": "DB (onda-standard-property)",
+      "actions": [
+        {
+          "type": "deleteAccount",
+          "account": "sean",
+          "note": "퇴사자 계정 삭제"
+        },
+        {
+          "type": "createAccount",
+          "account": "lex.ahn",
+          "note": "개발자 계정 생성"
+        }
+      ]
+    },
+    {
+      "name": "DB (onda-sms)",
+      "actions": [
+        {
+          "type": "deleteAccount",
+          "account": "sean",
+          "note": "퇴사자 계정 삭제"
+        }
+      ]
+    },
+    {
+      "name": "DB (b2e-rds-prd-cluster)",
+      "actions": [
+        {
+          "type": "deleteAccount",
+          "account": "sean",
+          "note": "퇴사자 계정 삭제"
+        },
+        {
+          "type": "grantPermission",
+          "account": "b2e-real",
+          "note": "서비스 계정 DELETE 권한 추가"
+        },
+        {
+          "type": "createAccount",
+          "account": "lex.ahn",
+          "note": "개발자 계정 생성"
+        }
+      ]
+    },
+    {
+      "name": "DB (auth-cluster)",
+      "actions": [
+        {
+          "type": "deleteAccount",
+          "account": "sean",
+          "note": "퇴사자 계정 삭제"
+        }
+      ]
+    },
+    {
+      "name": "DB (onda-plus-cluster)",
+      "actions": [
+        {
+          "type": "permissionChange",
+          "account": "ted.kim",
+          "from": "SELECT, PROCESS, SHOW DATABASES",
+          "to": "ALL + GRANT OPTION"
+        },
+        {
+          "type": "deleteAccount",
+          "account": "sean",
+          "note": "퇴사자 계정 삭제"
+        },
+        {
+          "type": "createAccount",
+          "account": "lex.ahn",
+          "note": "개발자 계정 생성"
+        }
+      ]
+    },
+    {
+      "name": "DB (onda-backoffice)",
+      "actions": [
+        {
+          "type": "deleteAccount",
+          "account": "sean",
+          "note": "퇴사자 계정 삭제"
+        },
+        {
+          "type": "createAccount",
+          "account": "lex.ahn",
+          "note": "개발자 계정 생성"
+        }
+      ]
+    },
+    {
+      "name": "DB (booking-prd)",
+      "actions": [
+        {
+          "type": "deleteAccount",
+          "account": "sean",
+          "note": "퇴사자 계정 삭제"
+        }
+      ]
+    },
+    {
+      "name": "DB (obs-system)",
+      "actions": [
+        {
+          "type": "deleteAccount",
+          "account": "sean",
+          "note": "퇴사자 계정 삭제"
+        }
+      ]
+    },
+    {
+      "name": "DB (cms-cde-reservaion-api)",
+      "actions": [
+        {
+          "type": "deleteAccount",
+          "account": "sean",
+          "note": "퇴사자 계정 삭제"
+        }
+      ]
+    },
+    {
+      "name": "DB (onda-misc-vendor-raw)",
+      "actions": [
+        {
+          "type": "other",
+          "note": "변경사항 없음"
+        }
+      ]
+    },
+    {
+      "name": "DocumentDB (EVCMS)",
+      "actions": [
+        {
+          "type": "other",
+          "note": "변경사항 없음"
+        }
+      ]
+    },
+    {
+      "name": "Atlas (onda-notification)",
+      "actions": [
+        {
+          "type": "other",
+          "note": "변경사항 없음"
+        }
+      ]
+    },
+    {
+      "name": "Atlas (vendor)",
+      "actions": [
+        {
+          "type": "other",
+          "note": "변경사항 없음"
+        }
+      ]
+    },
+    {
+      "name": "Atlas (content)",
+      "actions": [
+        {
+          "type": "other",
+          "note": "변경사항 없음"
+        }
+      ]
+    }
+  ],
+  "period": "2025-12",
+  "mode": "TEMP"
+}

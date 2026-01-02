@@ -14,7 +14,7 @@ const path = require('path');
 
 const ROOT_DIR = path.resolve(__dirname, '../..');
 const CHANGES_DIR = path.join(ROOT_DIR, 'changes');
-const OUTPUT_FILE = path.join(ROOT_DIR, 'diff_result.json');
+const REPORTS_DIR = path.join(ROOT_DIR, 'reports');
 
 // 전체 DB 목록 (15개)
 const ALL_DATABASES = [
@@ -156,13 +156,20 @@ function main() {
 
   const files = loadChangeFiles(targetMonth);
 
+  // reports 디렉토리 생성
+  if (!fs.existsSync(REPORTS_DIR)) {
+    fs.mkdirSync(REPORTS_DIR, { recursive: true });
+  }
+
+  const outputFile = path.join(REPORTS_DIR, `${targetMonth}.json`);
+
   if (files.length === 0) {
     console.log(`\n${targetMonth} 월 변경 파일이 없습니다.`);
 
     // 변경사항 없음으로 payload 생성
     const payload = buildPayload(targetMonth, new Map());
-    fs.writeFileSync(OUTPUT_FILE, JSON.stringify(payload, null, 2));
-    console.log(`\n결과 파일 생성: ${OUTPUT_FILE}`);
+    fs.writeFileSync(outputFile, JSON.stringify(payload, null, 2));
+    console.log(`\n결과 파일 생성: ${outputFile}`);
     return;
   }
 
@@ -171,8 +178,8 @@ function main() {
   const dbChanges = aggregateChanges(files);
   const payload = buildPayload(targetMonth, dbChanges);
 
-  fs.writeFileSync(OUTPUT_FILE, JSON.stringify(payload, null, 2));
-  console.log(`결과 파일 생성: ${OUTPUT_FILE}`);
+  fs.writeFileSync(outputFile, JSON.stringify(payload, null, 2));
+  console.log(`결과 파일 생성: ${outputFile}`);
 
   // 요약 출력
   const changedSystems = payload.systems.filter(s =>
