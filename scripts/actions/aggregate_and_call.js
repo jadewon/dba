@@ -14,7 +14,6 @@ const path = require('path');
 
 const ROOT_DIR = path.resolve(__dirname, '../..');
 const CHANGES_DIR = path.join(ROOT_DIR, 'changes');
-const REPORTS_DIR = path.join(ROOT_DIR, 'reports');
 const OUTPUT_FILE = path.join(ROOT_DIR, 'diff_result.json');
 
 // 전체 DB 목록 (15개)
@@ -48,24 +47,6 @@ function getTargetMonth() {
   const year = now.getFullYear();
   const month = String(now.getMonth() + 1).padStart(2, '0');
   return `${year}-${month}`;
-}
-
-function loadAuditReport(targetMonth) {
-  const reportPath = path.join(REPORTS_DIR, targetMonth, 'audit_report.json');
-
-  if (!fs.existsSync(reportPath)) {
-    console.log(`적절성 검토 리포트 없음: ${reportPath}`);
-    return null;
-  }
-
-  try {
-    const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
-    console.log(`적절성 검토 리포트 로드됨: ${reportPath}`);
-    return report;
-  } catch (err) {
-    console.error(`적절성 검토 리포트 파싱 실패: ${err.message}`);
-    return null;
-  }
 }
 
 function loadChangeFiles(targetMonth) {
@@ -133,7 +114,7 @@ function formatActionDescription(action) {
   }
 }
 
-function buildPayload(targetMonth, dbChanges, auditReport) {
+function buildPayload(targetMonth, dbChanges) {
   // API 형식에 맞게 systems 배열 생성
   const systems = [];
 
@@ -162,36 +143,6 @@ function buildPayload(targetMonth, dbChanges, auditReport) {
     }
   }
 
-  // audit 이슈를 별도 시스템으로 추가
-  if (auditReport && auditReport.conclusion?.hasIssues) {
-    const auditActions = [];
-
-    // 최소 권한 이슈
-    const minPrivIssues = auditReport.checks?.minimumPrivilege?.issues || [];
-    if (minPrivIssues.length > 0) {
-      auditActions.push({
-        type: 'auditWarning',
-        note: `최소 권한 원칙 위반 ${minPrivIssues.length}건 (비DBA가 GRANT 권한 보유)`
-      });
-    }
-
-    // 역할 분류 이슈
-    const roleIssues = auditReport.checks?.roleBasedAccess?.issues || [];
-    if (roleIssues.length > 0) {
-      auditActions.push({
-        type: 'auditWarning',
-        note: `역할 미분류 계정 ${roleIssues.length}건`
-      });
-    }
-
-    if (auditActions.length > 0) {
-      systems.push({
-        name: '[적절성 검토]',
-        actions: auditActions
-      });
-    }
-  }
-
   return {
     systems,
     period: targetMonth,
@@ -203,16 +154,13 @@ function main() {
   const targetMonth = getTargetMonth();
   console.log(`=== ${targetMonth} 월 변경사항 집계 ===\n`);
 
-  // 적절성 검토 리포트 로드
-  const auditReport = loadAuditReport(targetMonth);
-
   const files = loadChangeFiles(targetMonth);
 
   if (files.length === 0) {
     console.log(`\n${targetMonth} 월 변경 파일이 없습니다.`);
 
     // 변경사항 없음으로 payload 생성
-    const payload = buildPayload(targetMonth, new Map(), auditReport);
+    const payload = buildPayload(targetMonth, new Map());
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify(payload, null, 2));
     console.log(`\n결과 파일 생성: ${OUTPUT_FILE}`);
     return;
@@ -221,7 +169,7 @@ function main() {
   console.log(`\n총 ${files.length}개 파일 로드됨\n`);
 
   const dbChanges = aggregateChanges(files);
-  const payload = buildPayload(targetMonth, dbChanges, auditReport);
+  const payload = buildPayload(targetMonth, dbChanges);
 
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(payload, null, 2));
   console.log(`결과 파일 생성: ${OUTPUT_FILE}`);
