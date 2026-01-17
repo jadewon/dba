@@ -78,6 +78,17 @@ MySQL: `mysql --login-path=<name>` 형식
 - `mode: "TEMP"` → 임시저장
 - `mode` 없음 → 기안 완료
 
+## 운영 DB 계정 변경 시 필수 작업 순서
+
+운영 DB에서 CREATE USER, ALTER USER, GRANT, DROP USER 등 계정 관련 작업 수행 시:
+
+1. SQL 실행
+2. **즉시** `changes/YYYY-MM-DD.json`에 기록 (작업 완료 전 필수)
+3. `credentials/by-login-path/*.json`에 계정 정보 업데이트
+4. 작업 완료 보고
+
+2번을 빠뜨리면 월말 적절성 검토 보고서에서 누락됨.
+
 ## 주의사항
 
 - 운영 DB 변경 시 반드시 `changes/YYYY-MM-DD.json`에 기록
