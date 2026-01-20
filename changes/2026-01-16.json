@@ -11,5 +11,70 @@
         "note": "CloudBeaver 접속용 읽기 전용 계정"
       }
     ]
+  },
+  {
+    "name": "DB (onda-plus-cluster)",
+    "loginPath": "db.pplus.write",
+    "actions": [
+      {
+        "type": "createAccount",
+        "account": "cloudbeaver",
+        "hosts": ["10.30.13.%"],
+        "grants": "SELECT, PROCESS, SHOW DATABASES, TRIGGER ON *.*",
+        "note": "CloudBeaver 접속용 읽기 전용 계정"
+      }
+    ]
+  },
+  {
+    "name": "DB (onda-backoffice)",
+    "loginPath": "db.bo.write",
+    "actions": [
+      {
+        "type": "createAccount",
+        "account": "cloudbeaver",
+        "hosts": ["10.30.13.%"],
+        "grants": "SELECT, PROCESS, SHOW DATABASES, TRIGGER ON *.*",
+        "note": "CloudBeaver 접속용 읽기 전용 계정"
+      }
+    ]
+  },
+  {
+    "name": "DB (onda-standard-property)",
+    "loginPath": "db.osp",
+    "actions": [
+      {
+        "type": "createAccount",
+        "account": "cloudbeaver",
+        "hosts": ["10.30.13.%"],
+        "grants": "SELECT, PROCESS, SHOW DATABASES, TRIGGER ON *.*",
+        "note": "CloudBeaver 접속용 읽기 전용 계정"
+      }
+    ]
+  },
+  {
+    "name": "DB (b2e-rds-prd-cluster)",
+    "loginPath": "db.voucher",
+    "actions": [
+      {
+        "type": "createAccount",
+        "account": "cloudbeaver",
+        "hosts": ["10.30.13.%"],
+        "grants": "SELECT, PROCESS, SHOW DATABASES, TRIGGER ON *.*",
+        "note": "CloudBeaver 접속용 읽기 전용 계정"
+      }
+    ]
+  },
+  {
+    "name": "DB (onda-sms)",
+    "loginPath": "db.sms",
+    "actions": [
+      {
+        "type": "createAccount",
+        "account": "cloudbeaver",
+        "hosts": ["10.30.13.%"],
+        "grants": "SELECT, PROCESS, SHOW DATABASES, TRIGGER ON *.*",
+        "note": "CloudBeaver 접속용 읽기 전용 계정"
+      }
+    ]
   }
 ]
