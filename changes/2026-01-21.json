@@ -1,0 +1,22 @@
+[
+  {
+    "name": "DB (obs-system)",
+    "loginPath": "db.misc",
+    "actions": [
+      {
+        "type": "grantPermission",
+        "account": "liam",
+        "hosts": ["10.13.30.%"],
+        "grants": "ALL (Aurora 최대 권한) WITH GRANT OPTION",
+        "note": "개발팀 리더 권한 부여"
+      },
+      {
+        "type": "grantPermission",
+        "account": "ted.kim",
+        "hosts": ["10.13.30.%"],
+        "grants": "ALL (Aurora 최대 권한) WITH GRANT OPTION",
+        "note": "개발팀 리더 권한 부여"
+      }
+    ]
+  }
+]
