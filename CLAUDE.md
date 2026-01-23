@@ -66,7 +66,7 @@ curl -X POST https://hiworks-production.up.railway.app/hiworks/system-account-re
 ## DB 접속
 
 MySQL: `mysql --login-path=<name>` 형식
-- 운영: `hub.write`, `db.pplus.write`, `db.osp`, `db.sms`, `db.bo.write`, `db.obs`, `db.cms`, `db.auth`, `db.voucher`, `db.bookingon`
+- 운영: `hub.write`, `db.pplus.write`, `db.osp`, `db.sms`, `db.bo.write`, `db.obs`, `db.misc`, `db.cms`, `db.auth`, `db.voucher`, `db.bookingon`
 - 개발: `db.gds.dev`, `db.pplus.dev`
 
 상세 정보: `docs/DB_접속정보.md`

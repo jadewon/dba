@@ -39,6 +39,7 @@ description: 운영 DB 계정 생성, 삭제, 권한 변경 등 계정 관련 �
 - db.sms (onda-sms)
 - db.bo.write (onda-backoffice)
 - db.obs (obs-system)
+- db.misc (obs-system)
 - db.cms (cms-cde-reservaion-api)
 - db.auth (auth-cluster)
 - db.voucher (b2e-rds-prd-cluster)
